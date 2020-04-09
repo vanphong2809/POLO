@@ -20,6 +20,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import util.EmailUtil;
 
@@ -40,7 +41,7 @@ public class OrderController {
         userModel = new UserModel();
     }
 
-    @RequestMapping(value = "/order")
+    @RequestMapping(value = "/Payment",method=RequestMethod.POST)
     public ModelAndView order(HttpServletRequest request, HttpSession session) throws MessagingException {
         List<Cart> listCart = (List<Cart>) session.getAttribute("listCart");
         String b = "<table border ='1'><thead><tr><th>Tên sản phẩm</th> <th></th><th>Giá</th><th>Số lượng</th> <th>Tổng</th></tr> </thead> <tbody>";

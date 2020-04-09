@@ -12,12 +12,19 @@ import java.sql.ResultSet;
 import java.text.SimpleDateFormat;
 import util.CheckEmail;
 import util.ConnectionDB;
+import util.HashPassword;
 
 /**
  *
  * @author Win 10
  */
 public class UserModel {
+    private HashPassword hassPass;
+
+    public UserModel() {
+        hassPass=new HashPassword();
+    }
+    
     public boolean register(User user){
         Connection conn=null;
         CallableStatement callSt=null;
@@ -26,7 +33,7 @@ public class UserModel {
             conn=ConnectionDB.openConnect();
             callSt=conn.prepareCall("{call register(?,?,?,?,?)}");
             callSt.setString(1, user.getUserName());
-            callSt.setString(2, user.getPassword());
+            callSt.setString(2, hassPass.getMD5(user.getPassword()));
             callSt.setString(3, user.getEmail());
             callSt.setString(4, user.getAddress());
             callSt.setString(5, user.getPhone());

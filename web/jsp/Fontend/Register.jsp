@@ -99,14 +99,8 @@
             <div class="body_opactiy"></div>
             <div class="op_login"></div>
             <!-- Main content -->
-            <c:choose>
-                <c:when test="${account==null}">
-                    <jsp:include page="Header.jsp"></jsp:include>
-                    </c:when>
-                    <c:otherwise>
-                    <jsp:include page="Header1.jsp"></jsp:include>
-                    </c:otherwise>
-                </c:choose>
+            <jsp:include page="Header.jsp"></jsp:include>
+            
                 <!-- end header --> 
 
             <jsp:include page="Menu.jsp"></jsp:include>
@@ -255,14 +249,14 @@
                                         <p class="a-center">
                                             Hoặc đăng nhập bằng
                                         </p>
-                                        <script>function loginFacebook() {
-            var a = {client_id: "947410958642584", redirect_uri: "https://store.mysapo.net/account/facebook_account_callback", state: JSON.stringify({redirect_url: window.location.href}), scope: "email", response_type: "code"}, b = "https://www.facebook.com/v3.2/dialog/oauth" + encodeURIParams(a, !0);
-            window.location.href = b
-        }
-        function loginGoogle() {
-            var a = {client_id: "885968593373-197u9i4pte44vmvcc0j50pvhlfvl27ds.apps.googleusercontent.com", redirect_uri: "https://store.mysapo.net/account/google_account_callback", scope: "email profile https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile", access_type: "online", state: JSON.stringify({redirect_url: window.location.href}), response_type: "code"}, b = "https://accounts.google.com/o/oauth2/v2/auth" + encodeURIParams(a, !0);
-            window.location.href = b
-        }
+                                        <script>//function loginFacebook() {
+//            var a = {client_id: "947410958642584", redirect_uri: "https://store.mysapo.net/account/facebook_account_callback", state: JSON.stringify({redirect_url: window.location.href}), scope: "email", response_type: "code"}, b = "https://www.facebook.com/v3.2/dialog/oauth" + encodeURIParams(a, !0);
+//            window.location.href = b
+//        }
+//        function loginGoogle() {
+//            var a = {client_id: "885968593373-197u9i4pte44vmvcc0j50pvhlfvl27ds.apps.googleusercontent.com", redirect_uri: "https://store.mysapo.net/account/google_account_callback", scope: "email profile https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile", access_type: "online", state: JSON.stringify({redirect_url: window.location.href}), response_type: "code"}, b = "https://accounts.google.com/o/oauth2/v2/auth" + encodeURIParams(a, !0);
+//            window.location.href = b
+//        }
         function encodeURIParams(a, b) {
             var c = [];
             for (var d in a)

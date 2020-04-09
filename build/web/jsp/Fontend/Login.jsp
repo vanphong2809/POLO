@@ -45,18 +45,57 @@
 
         <script src="/POLO/jsp/Fontend/js/common.js" type="text/javascript"></script>   
     </head>
-    <body>	
+    <body>
+
+        <script>
+            window.fbAsyncInit = function () {
+                FB.init({
+                    appId: '1861181127352213',
+                    cookie: true,
+                    xfbml: true,
+                    version: 'v6.0'
+                });
+
+                FB.AppEvents.logPageView();
+
+            };
+
+            (function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) {
+                    return;
+                }
+                js = d.createElement(s);
+                js.id = id;
+                js.src = "https://connect.facebook.net/en_US/sdk.js";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        </script>   
+        <%
+            Cookie[] listCookie = request.getCookies();
+            String user = "";
+            String pass = "";
+            int co = 0;
+            if (listCookie != null) {
+                while (co < listCookie.length) {
+                    if (listCookie[co].getName().equals("email")) {
+                        user = listCookie[co].getValue();
+                    }
+                    if (listCookie[co].getName().equals("password")) {
+                        pass = listCookie[co].getValue();
+                    }
+                    co++;
+                }
+
+            }
+        %>
         <div class="page-body">
             <!-- Main content -->
-            <c:choose>
-                <c:when test="${account==null}">
-                    <jsp:include page="Header.jsp"></jsp:include>
-                </c:when>
-                <c:otherwise>
-                    <jsp:include page="Header1.jsp"></jsp:include>
-                </c:otherwise>
-            </c:choose>
-            <!-- end header --> 
+
+            <jsp:include page="Header.jsp"></jsp:include>
+
+
+                <!-- end header --> 
             <jsp:include page="Menu.jsp"></jsp:include>
                 <!-- Header JS -->	
                 <script src="/POLO/jsp/Fontend/js/jquery-2.2.3.min.js" type="text/javascript"></script> 
@@ -103,7 +142,7 @@
                                     <strong>Đăng nhập</strong>
                                     <p>Nếu bạn có một tài khoản, xin vui lòng đăng nhập</p>
                                     <font color="red">${messageLogin}</font>
-                                <f:form accept-charset="UTF-8" action="login.htm" id="customer_login" commandName="account">
+                                <f:form accept-charset="UTF-8" action="login.htm" id="customer_login" commandName="account" method="post">
                                     <input name="FormType" type="hidden" value="customer_login" />
                                     <input name="utf8" type="hidden" value="true" />
                                     <div class="form-signup error a-left margin-bottom-15" >
@@ -118,30 +157,31 @@
                                         <button class="btn button-hover-3" type="submit" value="Đăng nhập">
                                             <span>Đăng nhập</span>
                                         </button>
-                                        <a href="#recover" onclick="showRecoverPasswordForm();return false;" id="RecoverPassword">Quên mật khẩu?</a>
+                                        <a href="#recover" onclick="showRecoverPasswordForm();
+                                                return false;" id="RecoverPassword">Quên mật khẩu?</a>
                                     </div>
                                     <div class="block social-login--facebooks">
                                         <p class="a-center">
                                             Hoặc đăng nhập bằng
                                         </p>
-                                        <script>function loginFacebook() {
-                                                var a = {client_id: "947410958642584", redirect_uri: "https://store.mysapo.net/account/facebook_account_callback", state: JSON.stringify({redirect_url: window.location.href}), scope: "email", response_type: "code"}, b = "https://www.facebook.com/v3.2/dialog/oauth" + encodeURIParams(a, !0);
-                                                window.location.href = b
-                                            }
-                                            function loginGoogle() {
-                                                var a = {client_id: "885968593373-197u9i4pte44vmvcc0j50pvhlfvl27ds.apps.googleusercontent.com", redirect_uri: "https://store.mysapo.net/account/google_account_callback", scope: "email profile https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile", access_type: "online", state: JSON.stringify({redirect_url: window.location.href}), response_type: "code"}, b = "https://accounts.google.com/o/oauth2/v2/auth" + encodeURIParams(a, !0);
-                                                window.location.href = b
-                                            }
-                                            function encodeURIParams(a, b) {
-                                                var c = [];
-                                                for (var d in a)
-                                                    if (a.hasOwnProperty(d)) {
-                                                        var e = a[d];
-                                                        null != e && c.push(encodeURIComponent(d) + "=" + encodeURIComponent(e))
-                                                    }
-                                                return 0 == c.length ? "" : (b ? "?" : "") + c.join("&")
-                                            }</script>
-                                        <a href="javascript:void(0)" class="social-login--facebook" onclick="loginFacebook()"><img width="129px" height="37px" alt="facebook-login-button" src="//bizweb.dktcdn.net/assets/admin/images/login/fb-btn.svg"></a>
+                                        <!--                                        <script>function loginFacebook() {
+                                                                                        var a = {client_id: "947410958642584", redirect_uri: "https://store.mysapo.net/account/facebook_account_callback", state: JSON.stringify({redirect_url: window.location.href}), scope: "email", response_type: "code"}, b = "https://www.facebook.com/v3.2/dialog/oauth" + encodeURIParams(a, !0);
+                                                                                        window.location.href = b
+                                                                                    }
+                                                                                    function loginGoogle() {
+                                                                                        var a = {client_id: "885968593373-197u9i4pte44vmvcc0j50pvhlfvl27ds.apps.googleusercontent.com", redirect_uri: "https://store.mysapo.net/account/google_account_callback", scope: "email profile https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile", access_type: "online", state: JSON.stringify({redirect_url: window.location.href}), response_type: "code"}, b = "https://accounts.google.com/o/oauth2/v2/auth" + encodeURIParams(a, !0);
+                                                                                        window.location.href = b
+                                                                                    }
+                                                                                    function encodeURIParams(a, b) {
+                                                                                        var c = [];
+                                                                                        for (var d in a)
+                                                                                            if (a.hasOwnProperty(d)) {
+                                                                                                var e = a[d];
+                                                                                                null != e && c.push(encodeURIComponent(d) + "=" + encodeURIComponent(e))
+                                                                                            }
+                                                                                        return 0 == c.length ? "" : (b ? "?" : "") + c.join("&")
+                                                                                    }</script>-->
+                                        <a href="https://www.facebook.com/dialog/oauth?client_id=1861181127352213&redirect_uri=http://localhost:8080/POLO/LoginFacebookServlet" class="social-login--facebook"><img width="129px" height="37px" alt="facebook-login-button" src="//bizweb.dktcdn.net/assets/admin/images/login/fb-btn.svg"></a>
                                         <a href="javascript:void(0)" class="social-login--google" onclick="loginGoogle()"><img width="129px" height="37px" alt="google-login-button" src="//bizweb.dktcdn.net/assets/admin/images/login/gp-btn.svg"></a>
                                     </div>
                                 </f:form>

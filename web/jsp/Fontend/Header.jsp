@@ -22,7 +22,7 @@
                         <div class="links">
 
                             <div class="register"><a title="Register" href="initRegister.htm"><span  class="hidden-xs">Đăng ký</span></a></div>
-                            <div class="login"><a title="Login" href="initLogin.htm"><span  class="hidden-xs">Đăng nhập</span></a></div>
+                            <div class="login"><a title="Login" href="login.htm"><span  class="hidden-xs">Đăng nhập</span></a></div>
                         </div>
                     </div>
                     <!-- End Header Top Links --> 
@@ -88,7 +88,7 @@
                                                     &emsp;&emsp;&emsp;
                                                     <c:choose>
                                                         <c:when test="${listCart.size()!=0}">
-                                                            <a href="initPayment.htm" class="btn btn-success">
+                                                            <a href="Payment.htm" class="btn btn-success">
 
                                                                 <i class="fa fa-credit-card">&nbsp; Thanh toán</i>
 

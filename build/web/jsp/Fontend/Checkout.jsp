@@ -247,7 +247,7 @@
                                                                                 </a>
                                                                             </div>
                                                                         </button>
-                                                                        <form action="order.htm" data-toggle="validator" class="content stateful-form formCheckout" method="get">
+                                                                        <form action="Payment.htm" data-toggle="validator" class="content stateful-form formCheckout" method="post">
                                                                             <div class="wrap" context="checkout" define='{checkout: new Bizweb.Checkout(this,{ existCode: false, totalOrderItemPrice: 4180000.0000, discount: 0, shippingFee: 0, freeShipping: false, requiresShipping: true, code: "", settingLanguage: "vi", moneyFormat: "{{amount_no_decimals_with_comma_separator}}₫", discountLabel: "Miễn phí", districtPolicy: "optional", district: "", province:"" })}'>
                                                                                 <div class='sidebar '>
                                                                                     <div class="sidebar_header">

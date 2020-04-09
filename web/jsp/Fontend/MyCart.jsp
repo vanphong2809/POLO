@@ -166,7 +166,7 @@
                                             <c:choose>
                                                 <c:when test="${listCart.size()!=0}">
                                                     <li>
-                                                        <button onclick="window.location = 'initPayment.htm'" name="checkout"  
+                                                        <button onclick="window.location = 'Payment.htm'" name="checkout"  
                                                                 class="button btn-proceed-checkout" title="Proceed to Checkout" type="button">
                                                             <span>Thanh toán</span>
                                                         </button>

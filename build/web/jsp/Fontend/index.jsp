@@ -9,6 +9,35 @@
 <html class="no-js" lang="vi">
     <jsp:include page="Head.jsp"></jsp:include>
         <body  class="" >  
+            <script>
+                window.fbAsyncInit = function () {
+                    FB.init({
+                        appId: '1861181127352213',
+                        cookie: true,
+                        xfbml: true,
+                        version: 'v6.0'
+                    });
+
+                    FB.AppEvents.logPageView();
+
+                };
+
+                (function (d, s, id) {
+                    var js, fjs = d.getElementsByTagName(s)[0];
+                    if (d.getElementById(id)) {
+                        return;
+                    }
+                    js = d.createElement(s);
+                    js.id = id;
+                    js.src = "https://connect.facebook.net/en_US/sdk.js";
+                    fjs.parentNode.insertBefore(js, fjs);
+                }(document, 'script', 'facebook-jssdk'));
+            </script> 
+            <script type="text/javascript">
+                if (window.location.hash && window.location.hash == '#_=_') {
+                    window.location.hash = '';
+                }
+            </script>
             <div class="page"> 
 
                 <!-- end nav -->
@@ -24,8 +53,8 @@
                     <jsp:include page="Header1.jsp"></jsp:include>
                 </c:otherwise>
             </c:choose>
-            
-                <!-- header service -->
+
+            <!-- header service -->
             <jsp:include page="Menu.jsp"></jsp:include>
                 <div class="container">
                     <div class="header-service">
