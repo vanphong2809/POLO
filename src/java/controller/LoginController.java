@@ -61,8 +61,8 @@ public class LoginController {
         int status = loginModel.checkLogin(email, hasspass);
 
         session = request.getSession();
-        Cookie cookie = null;
-        Cookie[] cookies = request.getCookies();
+//        Cookie cookie = null;
+//        Cookie[] cookies = request.getCookies();
         if (status == 1) {
             session.setAttribute("account", user.getEmail());
 //            Cookie emailLogin = new Cookie("email", email);

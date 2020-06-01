@@ -19,11 +19,11 @@ public class User {
     private int groupId;
     private boolean status;
     private String created;
-
+    Group group;
     public User() {
     }
 
-    public User(int userId, String userName, String password, String email, String address, String phone, int groupId, boolean status, String created) {
+    public User(int userId, String userName, String password, String email, String address, String phone, int groupId, boolean status, String created, Group group) {
         this.userId = userId;
         this.userName = userName;
         this.password = password;
@@ -33,7 +33,9 @@ public class User {
         this.groupId = groupId;
         this.status = status;
         this.created = created;
+        this.group = group;
     }
+    
 
     public int getUserId() {
         return userId;
@@ -105,6 +107,14 @@ public class User {
 
     public void setCreated(String created) {
         this.created = created;
+    }
+
+    public Group getGroup() {
+        return group;
+    }
+
+    public void setGroup(Group group) {
+        this.group = group;
     }
     
 }

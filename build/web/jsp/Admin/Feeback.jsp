@@ -1,8 +1,4 @@
-<%-- 
-    Document   : Head
-    Created on : Jun 7, 2017, 2:04:06 PM
-    Author     : TuyenMap
---%>
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>

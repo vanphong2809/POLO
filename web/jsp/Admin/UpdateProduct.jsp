@@ -1,8 +1,3 @@
-<%-- 
-    Document   : InsertCatalog
-    Created on : Jun 9, 2017, 6:30:29 AM
-    Author     : TuyenMap
---%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="f"%>
@@ -16,11 +11,11 @@
     <meta charset="utf-8" />
     <jsp:include page="Head.jsp"></jsp:include>
 
-        <link href="/SpringFrameworks/jsp/Admin/css/sweetalert.css" rel="stylesheet" type="text/css"/>
-        <script src="/SpringFrameworks/jsp/Admin/js/sweetalert.min.js" type="text/javascript"></script>
-        <script src="/SpringFrameworks/jsp/Admin/js/tinymce/tinymce.min.js" type="text/javascript" charset="utf-8" ></script>
-        <script src="/SpringFrameworks/jsp/ckeditor/ckeditor.js" type="text/javascript"></script>
-        <script src="/SpringFrameworks/jsp/ckfinder/ckfinder.js" type="text/javascript"></script>
+        <link href="/POLO/jsp/Admin/css/sweetalert.css" rel="stylesheet" type="text/css"/>
+        <script src="/POLO/jsp/Admin/js/sweetalert.min.js" type="text/javascript"></script>
+        <script src="/POLO/jsp/Admin/js/tinymce/tinymce.min.js" type="text/javascript" charset="utf-8" ></script>
+        <script src="/POLO/jsp/ckeditor/ckeditor.js" type="text/javascript"></script>
+        <script src="/POLO/jsp/ckfinder/ckfinder.js" type="text/javascript"></script>
      
         <body class="no-skin">
         <jsp:include page="Header.jsp"></jsp:include>
@@ -65,7 +60,7 @@
                                         <div class="x_title">
                                             <h4>Quản lí sản phẩm <small>  >> Sửa thông tin sản phẩm</small></h4>
                                             <div class="clearfix"></div>
-                                        <f:form class="form-horizontal form-label-left" action="updateProduct.htm" commandName="updateProduct" onsubmit="return validate()">
+                                        <f:form class="form-horizontal form-label-left" action="UpdateProduct.htm" commandName="updateProduct" onsubmit="return validate()" method="POST">
                                                <div class="form-group">
                                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Mã sản phẩm <span >*</span>
                                                 </label>

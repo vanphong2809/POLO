@@ -10,6 +10,7 @@ package entity;
  * @author TuyenMap
  */
 public class Order {
+
     private int orderId;
     private int userId;
     private String orderName;
@@ -22,11 +23,13 @@ public class Order {
     private String paymentMethod;
     private String created;
     private String description;
+    private String paymentStatus;
+    private String transportStatus;
 
     public Order() {
     }
 
-    public Order(int userId, String orderName, String phone, String email, String address, int totalAmount, String description) {
+    public Order(int userId, String orderName, String phone, String email, String address, int totalAmount, String description, String paymentStatus, String transportStatus) {
         this.userId = userId;
         this.orderName = orderName;
         this.phone = phone;
@@ -34,10 +37,10 @@ public class Order {
         this.address = address;
         this.totalAmount = totalAmount;
         this.description = description;
+        this.paymentStatus = paymentStatus;
+        this.transportStatus = transportStatus;
     }
-    
-    
-    
+
     public String getPaymentMethod() {
         return paymentMethod;
     }
@@ -142,5 +145,21 @@ public class Order {
     public void setDescription(String description) {
         this.description = description;
     }
-    
+
+    public String getPaymentStatus() {
+        return paymentStatus;
+    }
+
+    public void setPaymentStatus(String paymentStatus) {
+        this.paymentStatus = paymentStatus;
+    }
+
+    public String getTransportStatus() {
+        return transportStatus;
+    }
+
+    public void setTransportStatus(String transportStatus) {
+        this.transportStatus = transportStatus;
+    }
+
 }

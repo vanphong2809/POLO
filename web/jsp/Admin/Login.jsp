@@ -1,8 +1,4 @@
-<%-- 
-    Document   : Login
-    Created on : Jun 8, 2017, 1:46:39 PM
-    Author     : TuyenMap
---%>
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="f"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="s"%>
@@ -18,21 +14,21 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 
         <!-- bootstrap & fontawesome -->
-        <link rel="stylesheet" href="/SpringFrameworks/jsp/Admin/css/bootstrap.min.css" />
-        <link rel="stylesheet" href="/SpringFrameworks/jsp/Admin/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="/POLO/jsp/Admin/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="/POLO/jsp/Admin/css/font-awesome.min.css" />
 
         <!-- text fonts -->
-        <link rel="stylesheet" href="/SpringFrameworks/jsp/Admin/fonts.googleapis.com.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link href="/SpringFrameworks/jsp/Admin/css/sweetalert.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" href="/POLO/jsp/Admin/fonts.googleapis.com.css" />
+        <link href="/POLO/jsp/Admin/css/sweetalert.css" rel="stylesheet" type="text/css"/>
         <!-- ace styles -->
-        <link rel="stylesheet" href="/SpringFrameworks/jsp/Admin/css/ace.min.css" />
-        <link href="/SpringFrameworks/jsp/Admin/css/style.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/POLO/jsp/Admin/css/ace.min.css" />
+        <link href="/POLO/jsp/Admin/css/style.css" rel="stylesheet" type="text/css"/>
 
         <!--[if lte IE 9]>
                 <link rel="stylesheet" href="assets/css/ace-part2.min.css" />
         <![endif]-->
-        <link rel="stylesheet" href="assets/css/ace-rtl.min.css" />
+        <link rel="stylesheet" href="/POLO/jsp/Admin/css/ace-rtl.min.css" />
         
 
         <!--[if lte IE 9]>
@@ -80,8 +76,8 @@
                             <div class="center">
                                 <h1>
                                     <i class="ace-icon fa fa-leaf green"></i>
-                                    <span class="red">Bach Khoa</span>
-                                    <span class="white" id="id-text2">Aptech</span>
+                                    <span class="red">POLO</span>
+                                    
                                 </h1>
                                 <h4 class="blue" id="id-company-text">Quản trị website</h4>
                             </div>
@@ -98,7 +94,7 @@
 
                                             <div class="space-6"></div>
 
-                                            <f:form action="backendLogin.htm" commandName="user" onsubmit="return validate()">
+                                            <f:form action="LoginAdmin.htm" commandName="user" onsubmit="return validate()" method="POST">
                                                 <fieldset>
                                                       <label class="block clearfix">
                                                     <div class="message">
@@ -107,7 +103,7 @@
                                                       </label>
                                                     <label class="block clearfix">
                                                         <span class="block input-icon input-icon-right">
-                                                            <f:input type="text" class="form-control" placeholder="Tên đăng nhập" path="userName" id="username" />
+                                                            <f:input type="text" class="form-control" placeholder="Email" path="email" id="email" />
                                                             <i class="ace-icon fa fa-user"></i>
                                                         </span>
                                                     </label>
@@ -317,7 +313,7 @@
         <!-- basic scripts -->
 
         <!--[if !IE]> -->
-        <script src="/SpringFrameworks/jsp/Admin/js/jquery.2.1.4.min.js"></script>
+        <script src="/POLO/jsp/Admin/js/jquery.2.1.4.min.js"></script>
 
         <!-- <![endif]-->
 
@@ -327,7 +323,7 @@
 
         <!--[if !IE]> -->
         <script type="text/javascript">
-            window.jQuery || document.write("<script src='/SpringFrameworks/jsp/Admin/js/jquery.min.js'>" + "<" + "/script>");
+            window.jQuery || document.write("<script src='/POLO/jsp/Admin/js/jquery.min.js'>" + "<" + "/script>");
         </script>
 
         <!-- <![endif]-->
@@ -339,9 +335,9 @@ window.jQuery || document.write("<script src='assets/js/jquery1x.min.js'>"+"<"+"
 <![endif]-->
         <script type="text/javascript">
             if ('ontouchstart' in document.documentElement)
-                document.write("<script src='/SpringFrameworks/jsp/Admin/js/jquery.mobile.custom.min.js'>" + "<" + "/script>");
+                document.write("<script src='/POLO/jsp/Admin/js/jquery.mobile.custom.min.js'>" + "<" + "/script>");
         </script>
-        <script src="/SpringFrameworks/jsp/Admin/js/sweetalert.min.js" type="text/javascript"></script>
+        <script src="/POLO/jsp/Admin/js/sweetalert.min.js" type="text/javascript"></script>
         <!-- inline scripts related to this page -->
         <script type="text/javascript">
             jQuery(function ($) {

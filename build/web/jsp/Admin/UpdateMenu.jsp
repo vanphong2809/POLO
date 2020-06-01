@@ -1,8 +1,3 @@
-<%-- 
-    Document   : UpdateMenu
-    Created on : Jun 13, 2017, 12:52:16 AM
-    Author     : TuyenMap
---%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>

@@ -1,8 +1,4 @@
-<%-- 
-    Document   : InsertCatalog
-    Created on : Jun 9, 2017, 6:30:29 AM
-    Author     : TuyenMap
---%>
+
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="f"%>
@@ -84,7 +80,7 @@
                                         <div class="x_title">
                                             <h4>Quản lí màu sắc <small>  >> Thêm mới</small></h4>
                                             <div class="clearfix"></div>
-                                        <f:form class="form-horizontal form-label-left" action="insertColor.htm" commandName="newColor" onsubmit="return validate()">
+                                        <f:form class="form-horizontal form-label-left" action="InsertColor.htm" commandName="newColor" onsubmit="return validate()" method="POST">
                                              <div class="form-group message">
                                                  ${message}
                                              </div>

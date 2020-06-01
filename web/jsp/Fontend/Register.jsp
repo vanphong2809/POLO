@@ -226,7 +226,7 @@
                                     <p>Bằng cách tạo một tài khoản với cửa hàng của chúng tôi, bạn sẽ có thể thực hiện những quy trình mua hàng nhanh hơn, lưu trữ nhiều địa chỉ gửi hàng, xem và theo dõi đơn đặt hàng của bạn trong tài khoản của bạn và nhiều hơn nữa.</p>
                                     <h2>Thông tin cá nhân</h2>
                                     <font color ="red" >${message}</font>
-                                <f:form accept-charset="UTF-8" action="register.htm" id="customer_register" commandName="register" onsubmit="return validate()">
+                                <f:form accept-charset="UTF-8" action="register.htm" id="customer_register" commandName="account" onsubmit="return validate()">
 
                                     <label>Tên đăng nhập <span class="required">*</span></label>
                                     <f:input type="text" class="input-control" name="userName" id="userName" path="userName"/>

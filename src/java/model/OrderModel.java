@@ -9,8 +9,12 @@ import entity.Order;
 import entity.OrderDetail;
 import java.sql.CallableStatement;
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Types;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import util.ConnectionDB;
@@ -20,6 +24,42 @@ import util.ConnectionDB;
  * @author Win 10
  */
 public class OrderModel {
+    public List<Order> GetOrderByUser(int id){
+        Connection conn=null;
+        CallableStatement callSt=null;
+        ArrayList<Order> list=new ArrayList<>();
+        try {
+            conn=ConnectionDB.openConnect();
+            callSt=conn.prepareCall("{call getInforOrderByUser(?)}");
+            callSt.setInt(1, id);
+            ResultSet rs=callSt.executeQuery();
+            while(rs.next()){
+                Order order=new Order();
+                order.setOrderId(rs.getInt("OrderId"));
+                order.setOrderName(rs.getString("OrderName"));
+                order.setOrderNumber(rs.getString("OrderNumber"));
+                order.setPhone(rs.getString("Phone"));
+                order.setEmail(rs.getString("Email"));
+                order.setAddress(rs.getString("Address"));
+                order.setTotalAmount(rs.getInt("TotalAmount"));
+                order.setPaymentDate(rs.getString("PaymentDate"));
+                order.setCreated(rs.getString("CreateDate"));
+                order.setStatus(rs.getInt("Status"));
+                order.setUserId(rs.getInt("UserId"));
+                order.setPaymentMethod(rs.getString("PaymentMethod"));
+                order.setDescription(rs.getString("Description"));
+                order.setPaymentStatus(rs.getString("PaymentStatus"));
+                order.setTransportStatus(rs.getString("TransportStatus"));
+                list.add(order);
+            }
+           
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally{
+            ConnectionDB.closeConnect(conn, callSt);
+        }
+        return list;
+    }
     public void insertOrder(Order order){
          Connection conn = null;
          CallableStatement calla = null;
@@ -94,5 +134,45 @@ public class OrderModel {
         }finally{
             ConnectionDB.closeConnect(conn, callSt);
         }
+    }
+    
+    public List<Order> GetAllOrder(){
+        SimpleDateFormat fomat = new SimpleDateFormat("dd-MM-yyyy");
+        Connection conn=null;
+        CallableStatement callSt=null;
+        List<Order> list=new ArrayList<>();
+        try {
+            conn=ConnectionDB.openConnect();
+            callSt=conn.prepareCall("{call GetAllOrder()}");
+            ResultSet rs=callSt.executeQuery();
+            while(rs.next()){
+                Order order=new Order();
+                order.setOrderId(rs.getInt("OrderId"));
+                order.setOrderName(rs.getString("OrderName"));
+                order.setOrderNumber(rs.getString("OrderNumber"));
+                order.setPhone(rs.getString("Phone"));
+                order.setEmail(rs.getString("Email"));
+                order.setAddress(rs.getString("Address"));
+                order.setTotalAmount(rs.getInt("TotalAmount"));
+                if(rs.getDate("PaymentDate")!=null){
+                    order.setPaymentDate(fomat.format(rs.getDate("PaymentDate")));
+                }
+                if(rs.getDate("CreateDate")!=null){
+                    order.setCreated(fomat.format(rs.getDate("CreateDate")));
+                }
+                order.setStatus(rs.getInt("Status"));
+                order.setUserId(rs.getInt("UserId"));
+                order.setPaymentMethod(rs.getString("PaymentMethod"));
+                order.setDescription(rs.getString("Description"));
+                order.setPaymentStatus(rs.getString("PaymentStatus"));
+                order.setTransportStatus(rs.getString("TransportStatus"));
+                list.add(order);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally{
+            ConnectionDB.closeConnect(conn, callSt);
+        }
+        return list;
     }
 }

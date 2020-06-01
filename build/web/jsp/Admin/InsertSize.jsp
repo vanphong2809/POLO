@@ -1,8 +1,4 @@
-<%-- 
-    Document   : InsertCatalog
-    Created on : Jun 9, 2017, 6:30:29 AM
-    Author     : TuyenMap
---%>
+
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="f"%>
@@ -15,13 +11,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta charset="utf-8" />
     <jsp:include page="Head.jsp"></jsp:include>
-    <link rel="stylesheet" href="/SpringFrameworks/jsp/Admin/css/bootstrap.min.css" />
-    <link href="/SpringFrameworks/jsp/Admin/css/sweetalert.css" rel="stylesheet" type="text/css"/>
-     <script src="/SpringFrameworks/jsp/Admin/js/sweetalert.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="/POLO/jsp/Admin/css/bootstrap.min.css" />
+    <link href="/POLO/jsp/Admin/css/sweetalert.css" rel="stylesheet" type="text/css"/>
+     <script src="/POLO/jsp/Admin/js/sweetalert.min.js" type="text/javascript"></script>
         <script>
             function validate() {
                 var sizeName = document.getElementById("sizeName").value;
-                var des = document.getElementById("descriptions").value;
+                var des = document.getElementById("description").value;
                 if (sizeName != "" && des != "") {
                     return true;
                 } else {
@@ -33,7 +29,7 @@
                       
                     if (des == "") {
                         swal("Bạn phải nhập mô tả kích thước sản phẩm.");
-                        document.getElementById("descriptions").focus();
+                        document.getElementById("description").focus();
                         return false;
                     }
 
@@ -85,7 +81,7 @@
                                         <div class="x_title">
                                             <h4>Quản lí kích thước <small>  >> Thêm mới</small></h4>
                                             <div class="clearfix"></div>
-                                        <f:form class="form-horizontal form-label-left" action="insertSize.htm" commandName="newSize" onsubmit="return validate()">
+                                        <f:form class="form-horizontal form-label-left" action="InsertSize.htm" commandName="newSize" onsubmit="return validate()">
                                              <div class="form-group message">
                                                  ${message}
                                              </div>
@@ -100,7 +96,7 @@
                                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Mô tả <span class="required">*</span>
                                                 </label>
                                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                                    <f:input type="text" id="descriptions"  class="form-control col-md-7 col-xs-12" path="descriptions" /> 
+                                                    <f:input type="text" id="description"  class="form-control col-md-7 col-xs-12" path="description" /> 
                                                 </div>
                                             </div>
                                            

@@ -1,8 +1,4 @@
-<%-- 
-    Document   : Head
-    Created on : Jun 7, 2017, 2:04:06 PM
-    Author     : TuyenMap
---%>
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -13,14 +9,14 @@
     <meta charset="utf-8" />
     <jsp:include page="Head.jsp"></jsp:include>
 
-        <link href="/SpringFrameworks/jsp/Fontend/css/styles.css" rel="stylesheet" type="text/css"/>
-        <link href="/SpringFrameworks/jsp/Admin/css/ace.min.css" rel="stylesheet" type="text/css"/>
-        <script src="/SpringFrameworks/jsp/Admin/js/jquery.min.js" type="text/javascript"></script>
-        <script src="/SpringFrameworks/jsp/Admin/js/jquery.dataTables.min.js" type="text/javascript"></script>
-        <script src="/SpringFrameworks/jsp/Admin/js/dataTables.jqueryui.js" type="text/javascript"></script>
-        <link href="/SpringFrameworks/jsp/Admin/css/jquery-ui.css" rel="stylesheet" type="text/css"/>
-        <link href="/SpringFrameworks/jsp/Admin/css/dataTables.jqueryui.css" rel="stylesheet" type="text/css"/>
-        <script src="/SpringFrameworks/jsp/Admin/js/count.js" type="text/javascript"></script>
+        <link href="/POLO/jsp/Fontend/css/styles.css" rel="stylesheet" type="text/css"/>
+        <link href="/POLO/jsp/Admin/css/ace.min.css" rel="stylesheet" type="text/css"/>
+        <script src="/POLO/jsp/Admin/js/jquery.min.js" type="text/javascript"></script>
+        <script src="/POLO/jsp/Admin/js/jquery.dataTables.min.js" type="text/javascript"></script>
+        <script src="/POLO/jsp/Admin/js/dataTables.jqueryui.js" type="text/javascript"></script>
+        <link href="/POLO/jsp/Admin/css/jquery-ui.css" rel="stylesheet" type="text/css"/>
+        <link href="/POLO/jsp/Admin/css/dataTables.jqueryui.css" rel="stylesheet" type="text/css"/>
+        <script src="/POLO/jsp/Admin/js/count.js" type="text/javascript"></script>
         <script type="text/javascript">
             $(document).ready(function () {
                 $('#catalog').dataTable({
@@ -40,7 +36,7 @@
                     } catch (e) {
                     }
                 </script>
-                <script src="/SpringFrameworks/jsp/Fontend/js/test.js" type="text/javascript"></script>
+                <script src="/POLO/jsp/Fontend/js/test.js" type="text/javascript"></script>
 
             <jsp:include page="Menu.jsp"></jsp:include>
 
@@ -72,7 +68,7 @@
                                     <div class="table-header">
                                        
                                         Danh sách danh mục <br/>
-                                         <a href="<%=request.getContextPath()%>/initInsertCatalog.htm" class="">Thêm mới</a>
+                                         <a href="<%=request.getContextPath()%>/InsertCatalog.htm" class="">Thêm mới</a>
                                     </div>
                                     
                                        
@@ -102,7 +98,7 @@
                                                     <td>${catalog.catalogName}</td>
                                                     <td class="hidden-480">${catalog.descriptions}</td>
                                                     <td>${catalog.parentId}</td>
-                                                    <td> <img title="${catalog.catalogName}" src="/SpringFrameworks/jsp/Fontend/images/${catalog.images}" class="img-fix3" >
+                                                    <td> <img title="${catalog.catalogName}" src="/POLO/jsp/Fontend/images/${catalog.images}" class="img-fix3" >
                                                     </td>                                               <td>
                                                         ${catalog.displayNumber}
                                                     </td>
@@ -122,7 +118,7 @@
                                                                 <i class="ace-icon fa fa-search-plus bigger-130"></i>
                                                             </a>
 
-                                                            <a class="green" href="initUpdateCatalog.htm?Id=${catalog.catalogId}">
+                                                            <a class="green" href="UpdateCatalog.htm?Id=${catalog.catalogId}">
                                                                 <i class="ace-icon fa fa-pencil bigger-130"></i>
                                                             </a>
 

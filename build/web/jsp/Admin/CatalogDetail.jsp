@@ -1,8 +1,4 @@
-<%-- 
-    Document   : CatalogDetail
-    Created on : Jun 21, 2017, 11:48:56 AM
-    Author     : TuyenMap
---%>
+
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="f"%>

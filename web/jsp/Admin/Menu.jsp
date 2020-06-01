@@ -1,8 +1,4 @@
-<%-- 
-    Document   : Menu
-    Created on : Jun 7, 2017, 2:09:42 PM
-    Author     : TuyenMap
---%>
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <div id="sidebar" class="sidebar responsive">
@@ -45,7 +41,7 @@
 
     <ul class="nav nav-list">
         <li class="active">
-            <a href="<%=request.getContextPath()%>/homeBackend.htm">
+            <a href="<%=request.getContextPath()%>/HomeBackend.htm">
                 <i class="menu-icon fa fa-home"></i>
                 <span class="menu-text"> Trang chủ </span>
             </a>
@@ -108,7 +104,7 @@
 
             <ul class="submenu">
                 <li class="">
-                    <a href="<%=request.getContextPath()%>/getAllCatalog.htm">
+                    <a href="<%=request.getContextPath()%>/AllCatalog.htm">
                         <i class="menu-icon fa fa-caret-right"></i>
                         Danh sách danh mục
                     </a>
@@ -117,7 +113,7 @@
                 </li>
 
                 <li class="">
-                    <a href="<%=request.getContextPath()%>/initInsertCatalog.htm">
+                    <a href="<%=request.getContextPath()%>/InsertCatalog.htm">
                         <i class="menu-icon fa fa-caret-right"></i>
                         Thêm mới
                     </a>
@@ -149,7 +145,7 @@
                     <b class="arrow"></b>
                     <ul class="submenu">
                         <li class="">
-                            <a href="<%=request.getContextPath()%>/getAllProductBackend.htm">
+                            <a href="<%=request.getContextPath()%>/AllProduct.htm">
                                 <i class="menu-icon fa fa-caret-right"></i>
                                 Danh sách sản phẩm
                             </a>
@@ -158,7 +154,7 @@
                         </li>
 
                         <li class="">
-                            <a href="<%=request.getContextPath()%>/initInsertProduct.htm">
+                            <a href="<%=request.getContextPath()%>/InsertProduct.htm">
                                 <i class="menu-icon fa fa-caret-right"></i>
                                 Thêm mới sản phẩm
                             </a>
@@ -181,7 +177,7 @@
 
                     <ul class="submenu">
                         <li class="">
-                            <a href="<%=request.getContextPath()%>/getAllColor.htm">
+                            <a href="<%=request.getContextPath()%>/AllColor.htm">
                                 <i class="menu-icon fa fa-caret-right"></i>
                                 Danh sách màu sắc
                             </a>
@@ -190,7 +186,7 @@
                         </li>
 
                         <li class="">
-                            <a href="<%=request.getContextPath()%>/initInsertColor.htm">
+                            <a href="<%=request.getContextPath()%>/InsertColor.htm">
                                 <i class="menu-icon fa fa-caret-right"></i>
                                 Thêm mới
                             </a>
@@ -213,7 +209,7 @@
 
                     <ul class="submenu">
                         <li class="">
-                            <a href="<%=request.getContextPath()%>/getAllSize.htm">
+                            <a href="<%=request.getContextPath()%>/AllSize.htm">
                                 <i class="menu-icon fa fa-caret-right"></i>
                                 Danh sách kích thước
                             </a>
@@ -222,7 +218,7 @@
                         </li>
 
                         <li class="">
-                            <a href="<%=request.getContextPath()%>/initInsertSize.htm">
+                            <a href="<%=request.getContextPath()%>/InsertSize.htm">
                                 <i class="menu-icon fa fa-caret-right"></i>
                                 Thêm mới kích thước
                             </a>
@@ -262,7 +258,7 @@
                     <b class="arrow"></b>
                     <ul class="submenu">
                         <li class="">
-                            <a href="<%=request.getContextPath()%>/getAllUser.htm">
+                            <a href="<%=request.getContextPath()%>/AllUser.htm">
                                 <i class="menu-icon fa fa-caret-right"></i>
                                 Danh sách người dùng
                             </a>
@@ -271,7 +267,7 @@
                         </li>
 
                         <li class="">
-                            <a href="<%=request.getContextPath()%>/initInsertUser.htm">
+                            <a href="<%=request.getContextPath()%>/InsertUser.htm">
                                 <i class="menu-icon fa fa-caret-right"></i>
                                 Thêm mới người dùng
                             </a>
@@ -292,7 +288,7 @@
                     <b class="arrow"></b>
                     <ul class="submenu">
                         <li class="">
-                            <a href="<%=request.getContextPath()%>/getAllGroup.htm">
+                            <a href="<%=request.getContextPath()%>/AllGroup.htm">
                                 <i class="menu-icon fa fa-caret-right"></i>
                                 Danh sách nhóm
                             </a>
@@ -301,39 +297,9 @@
                         </li>
 
                         <li class="">
-                            <a href="<%=request.getContextPath()%>/initInsertGroup.htm">
+                            <a href="<%=request.getContextPath()%>/InsertGroup.htm">
                                 <i class="menu-icon fa fa-caret-right"></i>
                                 Thêm mới nhóm
-                            </a>
-
-                            <b class="arrow"></b>
-                        </li>
-                    </ul>
-                </li>
-
-                <li class="">
-                    <a href="#" class="dropdown-toggle">
-                       
-                        <span class="menu-text"> Chức năng </span>
-
-                        <b class="arrow fa fa-angle-down"></b>
-                    </a>
-
-                    <b class="arrow"></b>
-                    <ul class="submenu">
-                        <li class="">
-                            <a href="<%=request.getContextPath()%>/getAllFunction.htm">
-                                <i class="menu-icon fa fa-caret-right"></i>
-                                Danh sách chức năng
-                            </a>
-
-                            <b class="arrow"></b>
-                        </li>
-
-                        <li class="">
-                            <a href="<%=request.getContextPath()%>/initInsertFunction.htm">
-                                <i class="menu-icon fa fa-caret-right"></i>
-                                Thêm mới chức năng
                             </a>
 
                             <b class="arrow"></b>
@@ -357,7 +323,7 @@
 
             <ul class="submenu">
                 <li class="">
-                    <a href="<%=request.getContextPath()%>/getAllOrder.htm">
+                    <a href="<%=request.getContextPath()%>/AllOrder.htm">
                         <i class="menu-icon fa fa-caret-right"></i>
                         Danh sách đơn hàng
                     </a>
@@ -366,86 +332,6 @@
                 </li>
 
              
-            </ul>
-        </li>
-        
-        
-        
-           <li class="">
-            <a href="#" class="dropdown-toggle">
-                <i class="menu-icon fa fa-credit-card"></i>
-                <span class="menu-text"> Quản lí thẻ nạp </span>
-
-                <b class="arrow fa fa-angle-down"></b>
-            </a>
-
-            <b class="arrow"></b>
-
-            <ul class="submenu">
-                <li class="">
-                    <a href="#" class="dropdown-toggle">
-                       
-                        <span class="menu-text"> Thẻ nạp</span>
-
-                        <b class="arrow fa fa-angle-down"></b>
-                    </a>
-
-                    <b class="arrow"></b>
-                    <ul class="submenu">
-                        <li class="">
-                            <a href="<%=request.getContextPath()%>/getAllCard.htm">
-                                <i class="menu-icon fa fa-caret-right"></i>
-                                Danh sách thẻ nạp
-                            </a>
-
-                            <b class="arrow"></b>
-                        </li>
-
-                        <li class="">
-                            <a href="<%=request.getContextPath()%>/initInsertCard.htm">
-                                <i class="menu-icon fa fa-caret-right"></i>
-                                Thêm mới thẻ nạp
-                            </a>
-
-                            <b class="arrow"></b>
-                        </li>
-                    </ul>
-                </li>
-
-                <li class="">
-                    <a href="#" class="dropdown-toggle">
-                       
-                        <span class="menu-text"> Ví tiền </span>
-
-                        <b class="arrow fa fa-angle-down"></b>
-                    </a>
-
-
-                    <b class="arrow"></b>
-
-                    <ul class="submenu">
-                        <li class="">
-                            <a href="<%=request.getContextPath()%>/getAllPackage.htm">
-                                <i class="menu-icon fa fa-caret-right"></i>
-                                Danh sách ví tiền
-                            </a>
-
-                            <b class="arrow"></b>
-                        </li>
-
-                        <li class="">
-                            <a href="<%=request.getContextPath()%>/initInsertPackage.htm">
-                                <i class="menu-icon fa fa-caret-right"></i>
-                                Thêm mới
-                            </a>
-
-                            <b class="arrow"></b>
-                        </li>
-                    </ul>
-                </li>
-
-              
-
             </ul>
         </li>
           <li class="">

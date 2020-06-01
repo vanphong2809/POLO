@@ -1,10 +1,7 @@
-<%-- 
-    Document   : InsertCatalog
-    Created on : Jun 9, 2017, 6:30:29 AM
-    Author     : TuyenMap
---%>
+
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="f"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="s"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -14,9 +11,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta charset="utf-8" />
     <jsp:include page="Head.jsp"></jsp:include>
-    <link rel="stylesheet" href="/SpringFrameworks/jsp/Admin/css/bootstrap.min.css" />
-    <link href="/SpringFrameworks/jsp/Admin/css/sweetalert.css" rel="stylesheet" type="text/css"/>
-     <script src="/SpringFrameworks/jsp/Admin/js/sweetalert.min.js" type="text/javascript"></script>
+        <link rel="stylesheet" href="/POLO/jsp/Admin/css/bootstrap.min.css" />
+        <link href="/POLO/jsp/Admin/css/sweetalert.css" rel="stylesheet" type="text/css"/>
+        <script src="/POLO/jsp/Admin/js/sweetalert.min.js" type="text/javascript"></script>
         <script>
             function validate() {
                 var userName = document.getElementById("userName").value;
@@ -24,7 +21,7 @@
                 var address = document.getElementById("address").value;
                 var email = document.getElementById("email").value;
                 var sdt = document.getElementById("phone").value;
-                 var pattern=/^([a-zA-Z0-9_.-])+@([a-zA-Z0-9_.-])+\.([a-zA-Z])+([a-zA-Z])+/;
+                var pattern = /^([a-zA-Z0-9_.-])+@([a-zA-Z0-9_.-])+\.([a-zA-Z])+([a-zA-Z])+/;
                 if (userName != "" && pass != "" && address != "" && email != "" && sdt != "" && pattern.test(email) == true) {
                     return true;
                 } else {
@@ -38,22 +35,22 @@
                         document.getElementById("address").focus();
                         return false;
                     }
-                    if(sdt == ""){
-                          swal("Bạn phải nhập số điện thoại.");
+                    if (sdt == "") {
+                        swal("Bạn phải nhập số điện thoại.");
                         document.getElementById("phone").focus();
                         return false;
                     }
-                      if (email == "") {
+                    if (email == "") {
                         swal("Bạn phải nhập email.");
                         document.getElementById("email").focus();
                         return false;
                     } else {
-                         if(!pattern.test(email)){
-                        swal("Email sai định dạng.");
-                        document.getElementById("email").focus();
-                        return false; 
-                }
-                        
+                        if (!pattern.test(email)) {
+                            swal("Email sai định dạng.");
+                            document.getElementById("email").focus();
+                            return false;
+                        }
+
                     }
 
                 }
@@ -104,10 +101,10 @@
                                         <div class="x_title">
                                             <h4>Quản lí người dùng <small>  >> Thêm mới</small></h4>
                                             <div class="clearfix"></div>
-                                        <f:form class="form-horizontal form-label-left" action="insertUser.htm" commandName="newUser" onsubmit="return validate()">
-                                             <div class="form-group message">
-                                                 ${message}
-                                             </div>
+                                        <f:form class="form-horizontal form-label-left" action="InsertUser.htm" commandName="newUser" onsubmit="return validate()"  method="POST">
+                                            <div class="form-group message">
+                                                ${message}
+                                            </div>
                                             <div class="form-group">
                                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Tên đăng nhập <span class="required">*</span>
                                                 </label>
@@ -115,7 +112,7 @@
                                                     <f:input type="text" id="userName" class="form-control col-md-7 col-xs-12" path="userName" />
                                                 </div>
                                             </div>
-                                                <div class="form-group">
+                                            <div class="form-group">
                                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Mật khẩu <span class="required">*</span>
                                                 </label>
                                                 <div class="col-md-6 col-sm-6 col-xs-12">
@@ -133,17 +130,28 @@
                                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Số điện thoại<span class="required">*</span>
                                                 </label>
                                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                                      <f:input type="text" id="phone"  class="form-control col-md-7 col-xs-12" path="phone" /> 
+                                                    <f:input type="text" id="phone"  class="form-control col-md-7 col-xs-12" path="phone" /> 
                                                 </div>
                                             </div>
-                                                 <div class="form-group">
+                                            <div class="form-group">
                                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Email<span class="required">*</span>
                                                 </label>
                                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                                      <f:input type="text" id="mail"  class="form-control col-md-7 col-xs-12" path="mail" /> 
+                                                    <f:input type="text" id="mail" name="email" class="form-control col-md-7 col-xs-12" path="email" /> 
                                                 </div>
                                             </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Mã nhóm người dùng <span class="required">*</span>
+                                                </label>
+                                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                                    <f:select id="groupId" class="form-control col-md-7 col-xs-12"  path="groupId" >
 
+                                                        <c:forEach items="${listGroup}" var="group">
+                                                            <f:option value="${group.groupId}">${group.groupName}</f:option>
+                                                        </c:forEach>
+                                                    </f:select>
+                                                </div>
+                                            </div>
                                             <div class="ln_solid"></div>
                                             <div class="form-group">
                                                 <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">

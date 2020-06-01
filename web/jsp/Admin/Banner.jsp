@@ -1,8 +1,3 @@
-<%-- 
-    Document   : Banner
-    Created on : Jan 12, 2020, 3:08:36 PM
-    Author     : Win 10
---%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

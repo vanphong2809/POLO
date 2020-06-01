@@ -1,8 +1,3 @@
-<%-- 
-    Document   : Head
-    Created on : Jun 7, 2017, 2:04:06 PM
-    Author     : TuyenMap
---%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <div id="navbar" class="navbar navbar-default">
@@ -25,7 +20,7 @@
         </button>
 
         <div class="navbar-header pull-left">
-            <a href="homeBackend.htm" class="navbar-brand">
+            <a href="LoginAdmin.htm" class="navbar-brand">
                 <small>
                     <i class="fa fa-leaf"></i>
                     QUẢN TRỊ WEB
@@ -39,7 +34,7 @@
 
                 <li class="light-blue">
                     <a data-toggle="dropdown" href="#" class="dropdown-toggle">
-                        <img class="nav-user-photo" src="/SpringFrameworks/jsp/Fontend/images/user.jpg" alt="Jason's Photo" />
+                        <img class="nav-user-photo" src="/POLO/jsp/Fontend/images/user.jpg" alt="Jason's Photo" />
                         <span class="user-info">
                             <small>Xin chào</small>
                             <%=request.getSession().getAttribute("user")%>

@@ -38,11 +38,11 @@ public class RegisterController {
     public ModelAndView initRegister() {
         ModelAndView model = new ModelAndView("Fontend/Register");
         User newUser = new User();
-        model.getModelMap().put("register", newUser);
+        model.getModelMap().put("account", newUser);
         return model;
     }
     @RequestMapping(value = "register")
-    public ModelAndView register(@ModelAttribute("register") User user,ModelMap mm, HttpSession session,HttpServletRequest request,HttpServletResponse response) throws IOException {
+    public ModelAndView register(@ModelAttribute("account") User user,ModelMap mm, HttpSession session,HttpServletRequest request,HttpServletResponse response) throws IOException {
         String email=request.getParameter("email");
          ModelAndView model = new ModelAndView("Fontend/Login");
         if (checkEmail.checkEmailExist(email)==0) {

@@ -5,6 +5,7 @@
  */
 package model;
 
+import entity.User;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -54,4 +55,26 @@ public class LoginModel {
         }
         return userName;
     }
+    
+//    kiem tra dang nhap quyen admin
+    public int checkLoginAdmin(User user){
+        Connection conn=null;
+        CallableStatement callSt=null;
+        int status=0;
+        try {
+            conn=ConnectionDB.openConnect();
+            callSt=conn.prepareCall("{call checkLoginAdmin(?,?,?)}");
+            callSt.setString(1, user.getEmail());
+            callSt.setString(2, user.getPassword());
+            callSt.registerOutParameter(3, java.sql.Types.INTEGER);
+            callSt.execute();
+            status=callSt.getInt(3);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally{
+            ConnectionDB.closeConnect(conn, callSt);
+        }
+        return status;
+    }
+            
 }

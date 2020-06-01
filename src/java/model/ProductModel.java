@@ -14,6 +14,7 @@ import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -36,15 +37,15 @@ public class ProductModel {
             conn = ConnectionDB.openConnect();
             callSt = conn.prepareCall("{call insertProduct(?,?,?,?,?,?,?,?,?,?,?)}");
             callSt.setString(1, p.getProductName());
-            callSt.setInt(2, p.getCatalogId());
-            callSt.setString(3, p.getProductContent());
-            callSt.setString(4, p.getProductContentDetail());
-            callSt.setString(5, p.getImages());
-            callSt.setString(6, p.getImageHover());
-            callSt.setInt(7, p.getPriceInput());
-            callSt.setInt(8, p.getPriceOutput());
-            callSt.setInt(9, p.getQuantity());
-            callSt.setInt(10, p.getProviderId());
+            callSt.setString(2, p.getProductContent());
+            callSt.setString(3, p.getProductContentDetail());
+            callSt.setString(4, p.getImages());
+            callSt.setInt(5, p.getPriceInput());
+            callSt.setInt(6, p.getPriceOutput());
+            callSt.setInt(7, p.getQuantity());
+            callSt.setInt(8, p.getCatalogId());
+            callSt.setInt(9, p.getProviderId());
+            callSt.setString(10, p.getImageHover());
             callSt.setInt(11, p.getDiscount());
             callSt.executeUpdate();
             check = true;
@@ -533,10 +534,40 @@ public class ProductModel {
             }
         } catch (Exception e) {
             e.printStackTrace();
-        }
-        finally{
+        } finally {
             ConnectionDB.closeConnect(conn, calla);
         }
         return listProduct;
+    }
+
+    public boolean updateProduct(Product product) throws ParseException {
+        SimpleDateFormat fomat = new SimpleDateFormat("dd-MM-yyyy");
+        Connection conn = null;
+        CallableStatement calla = null;
+        boolean result = false;
+        try {
+            conn = ConnectionDB.openConnect();
+            calla = conn.prepareCall("{call UpdateProduct(?,?,?,?,?,?,?,?,?,?,?,?,?,?)}");
+            calla.setInt(1, product.getProductId());
+            calla.setString(2, product.getProductName());
+            calla.setString(3, product.getProductContent());
+            calla.setString(4, product.getProductContentDetail());
+            calla.setString(5, product.getImages());
+            calla.setFloat(6, product.getPriceInput());
+            calla.setFloat(7, product.getPriceOutput());
+            calla.setInt(8, product.getQuantity());
+            calla.setInt(9, product.getCatalogId());
+            calla.setInt(10, product.getProviderId());
+            calla.setString(11, product.getCreated());
+            calla.setString(12, product.getImageHover());
+            calla.setBoolean(13, product.isStatus()); 
+            calla.setInt(14, product.getDiscount());           
+            result = true;
+        } catch (SQLException ex) {
+            Logger.getLogger(ProductModel.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            ConnectionDB.closeConnect(conn, calla);
+        }
+        return result;
     }
 }

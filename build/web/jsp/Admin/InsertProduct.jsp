@@ -1,13 +1,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="f"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="s"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
 
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta charset="utf-8" />
     <jsp:include page="Head.jsp"></jsp:include>
 
         <link href="/POLO/jsp/Admin/css/sweetalert.css" rel="stylesheet" type="text/css"/>
@@ -59,7 +58,7 @@
                                         <div class="x_title">
                                             <h4>Quản lí sản phẩm <small>  >> Thêm mới</small></h4>
                                             <div class="clearfix"></div>
-                                        <f:form class="form-horizontal form-label-left" action="insertProduct.htm" commandName="newProduct" onsubmit="return validate()" enctype="multipart/form-data">
+                                        <f:form class="form-horizontal form-label-left" action="InsertProduct.htm" commandName="newProduct" onsubmit="return validate()" enctype="multipart/form-data" method="POST">
 
                                             <div class="form-group">
                                                 <label class="control-label col-md-2 col-sm-2 col-xs-12" for="first-name">Tên sản phẩm <span class="required">*</span>
@@ -87,7 +86,6 @@
                                                     </label>
                                                     <div class="col-md-10 col-sm-10 col-xs-12">
                                                     <f:input type="file" id="images"  class="form-control col-md-7 col-xs-12" path="images" />
-
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -95,13 +93,6 @@
                                                 </label>
                                                 <div class="col-md-10 col-sm-10 col-xs-12">
                                                     <f:input type ="file" id="imageHover"  class="form-control col-md-7 col-xs-12" path="imageHover" />
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="control-label col-md-2 col-sm-2 col-xs-12" for="first-name">Số lượng <span class="required">*</span>
-                                                </label>
-                                                <div class="col-md-10 col-sm-10 col-xs-12">
-                                                    <f:input type="text" id="quantity" class="form-control col-md-7 col-xs-12" path="quantity" />
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -118,7 +109,15 @@
                                                     <f:input type="text" id="priceOutput" class="form-control col-md-7 col-xs-12" path="priceOutput" />
                                                 </div>
                                             </div>
-                                            
+                                            <div class="form-group">
+                                                <label class="control-label col-md-2 col-sm-2 col-xs-12" for="first-name">Số lượng <span class="required">*</span>
+                                                </label>
+                                                <div class="col-md-10 col-sm-10 col-xs-12">
+                                                    <f:input type="text" id="quantity" class="form-control col-md-7 col-xs-12" path="quantity" />
+                                                </div>
+                                            </div>
+
+
                                             <div class="form-group">
                                                 <label class="control-label col-md-2 col-sm-2 col-xs-12" for="last-name">Mã danh mục <span class="required">*</span>
                                                 </label>
@@ -141,16 +140,6 @@
                                                             <f:option value="${provider.providerId}" >${provider.providerName}</f:option>
                                                         </c:forEach>
                                                     </f:select>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="control-label col-md-2 col-sm-2 col-xs-12" for="first-name">Ảnh liên quan<span class="required">*</span>
-                                                </label>
-                                                <div class="col-md-10 col-sm-10 col-xs-12">
-                                                    <f:input type="file" multiple="multiple" name="imageLink" class="form-control col-md-7 col-xs-12" path="imageLink"  />
-                                                    <f:input type="file" multiple="multiple" name="imageLink" class="form-control col-md-7 col-xs-12" path="imageLink"  />
-                                                    <f:input type="file" multiple="multiple" name="imageLink" class="form-control col-md-7 col-xs-12" path="imageLink"  />
-                                                    <f:input type="file" multiple="multiple" name="imageLink" class="form-control col-md-7 col-xs-12" path="imageLink"  />
                                                 </div>
                                             </div>
                                             <div class="form-group">

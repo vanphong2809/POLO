@@ -196,7 +196,7 @@
                                                             <input id="${color.colorName}" type="radio" name="option-0" value="${color.colorName}"   />
 
                                                             <label for="${color.colorName}" style="background-color: ${color.natation}">
-                                                                <img class="crossed-out" src="/SpringFrameworks/jsp/Fontend/images/soldout.png" />
+                                                                <img class="crossed-out" src="/POLO/jsp/Fontend/images/soldout.png" />
                                                             </label>
 
                                                         </div>
@@ -216,7 +216,7 @@
 
                                                             <label for="${size.sizeName}">
                                                                 ${size.sizeName}
-                                                                <img class="crossed-out" src="/SpringFrameworks/jsp/Fontend/images/soldout.png" />
+                                                                <img class="crossed-out" src="/POLO/jsp/Fontend/images/soldout.png" />
                                                             </label>
 
                                                         </div>

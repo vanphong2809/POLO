@@ -1,16 +1,10 @@
-<%-- 
-    Document   : Footer
-    Created on : Jun 7, 2017, 2:16:00 PM
-    Author     : TuyenMap
---%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <div class="footer">
     <div class="footer-inner">
         <div class="footer-content">
             <span class="bigger-120">
-                <span class="blue bolder">Bách Khoa</span>
-                Aptech &copy; 2016-2017
+                <span class="blue bolder">POLO</span> &copy; 2020
             </span>
 
             &nbsp; &nbsp;

@@ -102,7 +102,9 @@ public class OrderController {
             orderModel.updateBuyItem(cart.getProduct().getProductId(), cart.getQuantity());
         }
 
-        
+        if(us.getEmail()==null){
+            us.setEmail(request.getParameter("email"));
+        }
         request.setAttribute("messageSuc", "Đặt hàng thành công!");
         EmailUtil.sendMail(us.getEmail(), "POLO Shop. Xác nhận đặt hàng", "Đặt hàng thành công. Cảm ơn bạn đã sử dụng dịch vụ của chúng tôi.Đơn hàng của bạn" + b);
         session.removeAttribute("listCart");

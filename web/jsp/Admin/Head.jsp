@@ -1,8 +1,3 @@
-<%-- 
-    Document   : Head
-    Created on : Jun 7, 2017, 2:04:06 PM
-    Author     : TuyenMap
---%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <head>

@@ -6,6 +6,7 @@
 package controller;
 
 import entity.Catalog;
+import entity.Color;
 import entity.ImageLink;
 import entity.New;
 import entity.Post;
@@ -24,6 +25,7 @@ import java.util.List;
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import model.CatalogModel;
+import model.ColorModel;
 import model.NewModel;
 import model.PaginationModel;
 import model.PostModel;
@@ -47,13 +49,14 @@ public class FontendController {
     private ProviderModel providerModel;
     private PaginationModel paginationModel;
     private PostModel postModel;
-    
+    private ColorModel colorModel;
     public FontendController() {
         productModel=new ProductModel();
         catalogModel = new CatalogModel();
         providerModel = new ProviderModel();
         paginationModel = new PaginationModel();
         postModel = new PostModel();
+        colorModel=new ColorModel();
     }
     @RequestMapping(value="getAllProduct")
     public ModelAndView getAllProduct(@RequestParam(value="page", defaultValue = "1") String page){

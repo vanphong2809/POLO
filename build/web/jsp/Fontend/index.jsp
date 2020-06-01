@@ -92,7 +92,7 @@
                                     <div class="new_title center">
                                         <h2>Sản phẩm nổi bật</h2>
                                     </div>
-                                    <div id="best-seller-slider" class="product-flexslider hidden-buttons hidden_btn_cart">
+                                    <div id="best-seller-slider" class="product-flexslider">
                                         <div class="slider-items slider-width-col4"> 
                                         <c:forEach items="${productHot}" var="productHot">
                                             <div class="item">
@@ -101,13 +101,6 @@
                                                         <a class="product-image" title="${productHot.productName}" href="productDetail.htm?Id=${productHot.productId}"> 
                                                             <img src="/POLO/jsp/Fontend/images/${productHot.images}" class="img-responsive" alt="${productHot.productName}" /> 
                                                         </a>
-                                                        <form action="addCart.htm" method="get" class="variants " id="product-actions-830911" enctype="multipart/form-data">
-                                                            <div class="hover_fly">
-                                                                <a class="exclusive ajax_add_to_cart_button btn-cart add_to_cart" href="#" title="Cho vào giỏ hàng">
-                                                                    <div><i class="icon-shopping-cart"></i><span>Cho vào giỏ hàng</span></div>
-                                                                </a>                                                               
-                                                            </div>
-                                                        </form>
                                                     </div>
                                                     <div class="info">
                                                         <div class="info-inner">
@@ -125,10 +118,11 @@
                                                             <!--item-content--> 
                                                         </div>
                                                         <!--info-inner-->
-                                                        <form action="/cart/add" method="post" class="variants " id="product-actions-830911" enctype="multipart/form-data">
+                                                        <form action="addCart.htm" method="get" class="variants" id="product-actions-830910" enctype="multipart/form-data">
                                                             <div class="actions">
-                                                                <input type="hidden" name="variantId" value="1273195" />
-                                                                <button class="button btn-cart btn-cart add_to_cart" title="Cho vào giỏ hàng" type="button"><span>Cho vào giỏ hàng</span></button>
+                                                                <input type="hidden" name="quantity" value="1">
+                                                                <input type="hidden" name="Id" value="${productHot.productId}">
+                                                                <button class="btn-transparent pull-xs-left" title="Cho vào giỏ hàng" type="submit"><span>Cho vào giỏ hàng</span></button>
                                                             </div>
                                                         </form>
                                                         <div class="clearfix"> </div>
@@ -218,7 +212,7 @@
                                 <div class="new_title center">
                                     <h2>Sản phẩm bán chạy</h2>
                                 </div>
-                                <div id="bag-seller-slider" class="product-flexslider hidden-buttons hidden_popup_cart">
+                                <div id="bag-seller-slider" class="product-flexslider">
                                     <div class="slider-items slider-width-col3"> 
                                         <c:forEach items="${productHot}" var="productHot">
                                             <div class="item">
@@ -227,14 +221,7 @@
                                                         <a class="product-image" title="${productHot.productName}" href="productDetail.htm?Id=${productHot.productId}"> 
                                                             <img src="/POLO/jsp/Fontend/images/${productHot.images}" class="img-responsive" alt="${productHot.productName}" /> 
                                                         </a>
-                                                        <form action="/cart/add" method="post" class="variants" id="product-actions-830911" enctype="multipart/form-data">
-                                                            <div class="hover_fly">
-                                                                <a class="exclusive ajax_add_to_cart_button btn-cart add_to_cart" href="#" title="Cho vào giỏ hàng">
-                                                                    <div><i class="icon-shopping-cart"></i><span>Cho vào giỏ hàng</span></div>
-                                                                </a>
-                                                                <input type="hidden" name="variantId" value="1273195" />
-                                                            </div>
-                                                        </form>
+
                                                     </div>
                                                     <div class="info">
                                                         <div class="info-inner">
@@ -253,12 +240,13 @@
                                                             <!--item-content--> 
                                                         </div>
                                                         <!--info-inner-->
-                                                        <form action="/cart/add" method="post" class="variants" id="product-actions-830911" enctype="multipart/form-data">
+                                                        <form action="addCart.htm" method="get" class="variants" id="product-actions-830911" enctype="multipart/form-data">
 
 
                                                             <div class="actions">
-                                                                <input type="hidden" name="variantId" value="1273195" />
-                                                                <button class="button btn-cart btn-cart add_to_cart" title="Cho vào giỏ hàng" type="button"><span>Cho vào giỏ hàng</span></button>
+                                                                <input type="hidden" name="quantity" value="1">
+                                                                <input type="hidden" name="Id" value="${productHot.productId}">
+                                                                <button class="btn-transparent pull-xs-left" title="Cho vào giỏ hàng" type="submit"><span>Cho vào giỏ hàng</span></button>
                                                             </div>
 
                                                         </form>
@@ -320,12 +308,13 @@
                                                             <!--item-content--> 
                                                         </div>
                                                         <!--info-inner-->
-                                                        <form action="/cart/add" method="post" class="variants" id="product-actions-830919" enctype="multipart/form-data">
+                                                        <form action="addCart.htm" method="get" class="variants" id="product-actions-830919" enctype="multipart/form-data">
 
 
                                                             <div class="actions">
-                                                                <input type="hidden" name="variantId" value="1273202" />
-                                                                <button class="button btn-cart btn-cart add_to_cart" title="Cho vào giỏ hàng" type="button"><span>Cho vào giỏ hàng</span></button>
+                                                                 <input type="hidden" name="quantity" value="1">
+                                                                <input type="hidden" name="Id" value="${productDiscount.productId}">
+                                                                <button class="btn-transparent pull-xs-left" title="Cho vào giỏ hàng" type="submit"><span>Cho vào giỏ hàng</span></button>
                                                             </div>
 
                                                         </form>

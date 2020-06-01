@@ -74,7 +74,7 @@
                                                             <thead class="thead-default">
                                                                 <tr>
                                                                     <th>Đơn hàng</th>
-                                                                    <th>Ngày</th>														
+                                                                    <th>Ngày đặt hàng</th>														
                                                                     <th>Địa chỉ</th>
                                                                     <th>Giá trị đơn hàng</th>
                                                                     <th>Tình trạng thanh toán</th>
@@ -83,10 +83,17 @@
                                                             </thead>
 
                                                             <tbody>
+                                                                <c:forEach items="${orderInfo}" var="oi">
+                                                                    <tr>
+                                                                        <td colspan="1"><p>${oi.orderId}</p></td>
+                                                                        <td colspan="1"><p>${oi.created}</p></td>
+                                                                        <td colspan="1"><p>${oi.address}</p></td>
+                                                                        <td colspan="1"><p>${oi.totalAmount}</p></td>
+                                                                        <td colspan="1"><p>${oi.paymentStatus}</p></td>
+                                                                        <td colspan="1"><p>${oi.transportStatus}</p></td>
+                                                                    </tr>
+                                                                </c:forEach>
 
-                                                                <tr>
-                                                                    <td colspan="6"><p>Không có đơn hàng nào.</p></td>
-                                                                </tr>
 
                                                             </tbody>
 
@@ -110,10 +117,10 @@
                                         <div class="block-content form-signup">
                                             <p>Tên tài khoản: <strong style="line-height: 20px;"> ${userName}</strong></p>
 
-                                                <p><i class="fa fa-home font-some" aria-hidden="true"></i>  <span>Địa chỉ: ${accountAct.address}</span></p>
-                                                <p><i class="fa fa-mobile font-some" aria-hidden="true"></i> <span>Điện thoại: ${accountAct.phone}</span> </p>
-                                                <p><i class="fa fa-map-marker font-some" aria-hidden="true"></i> <span> Địa chỉ 1: ${accountAct.address}</span></p>
-                                                <p><i class="fa fa-yelp font-some" aria-hidden="true"></i> <span> Email: ${accountAct.email}</span></p> 
+                                            <p><i class="fa fa-home font-some" aria-hidden="true"></i>  <span>Địa chỉ: ${accountAct.address}</span></p>
+                                            <p><i class="fa fa-mobile font-some" aria-hidden="true"></i> <span>Điện thoại: ${accountAct.phone}</span> </p>
+                                            <p><i class="fa fa-map-marker font-some" aria-hidden="true"></i> <span> Địa chỉ 1: ${accountAct.address}</span></p>
+                                            <p><i class="fa fa-yelp font-some" aria-hidden="true"></i> <span> Email: ${accountAct.email}</span></p> 
                                         </div>
                                     </div>
                                 </div>

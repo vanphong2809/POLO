@@ -1,8 +1,3 @@
-<%-- 
-    Document   : Card
-    Created on : Jan 12, 2020, 3:09:12 PM
-    Author     : Win 10
---%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>

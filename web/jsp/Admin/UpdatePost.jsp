@@ -1,8 +1,4 @@
-<%-- 
-    Document   : UpdatePost
-    Created on : Jun 21, 2017, 11:02:10 AM
-    Author     : TuyenMap
---%>
+
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="f"%>
@@ -15,10 +11,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta charset="utf-8" />
     <jsp:include page="Head.jsp"></jsp:include>
-        <link href="/SpringFrameworks/jsp/Admin/css/sweetalert.css" rel="stylesheet" type="text/css"/>
-        <script src="/SpringFrameworks/jsp/Admin/js/sweetalert.min.js" type="text/javascript"></script>
-        <script src="/SpringFrameworks/jsp/ckeditor/ckeditor.js" type="text/javascript"></script>
-        <script src="/SpringFrameworks/jsp/ckfinder/ckfinder.js" type="text/javascript"></script>
+        <link href="/POLO/jsp/Admin/css/sweetalert.css" rel="stylesheet" type="text/css"/>
+        <script src="/POLO/jsp/Admin/js/sweetalert.min.js" type="text/javascript"></script>
+        <script src="/POLO/jsp/ckeditor/ckeditor.js" type="text/javascript"></script>
+        <script src="/POLO/jsp/ckfinder/ckfinder.js" type="text/javascript"></script>
         <script>
             function validate() {
                 var catalogName = document.getElementById("catalogName").value;

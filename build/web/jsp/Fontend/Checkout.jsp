@@ -387,7 +387,7 @@
 
                                                                                                         <div class="form-group" bind-class="{'has-error' : invalidEmail}">
                                                                                                             <input data-error="Vui lòng nhập email" required bind="billing_address.email" 
-                                                                                                                   name="BillingAddress.Email" class="form-control" placeholder="Email" value="${us.email}"/>
+                                                                                                                   name="email" class="form-control" placeholder="Email" value="${us.email}"/>
                                                                                                             <div class="help-block with-errors"></div>
                                                                                                         </div>
 
