@@ -103,4 +103,22 @@ public class LoginController {
             out.close();
         }
     }
+    @RequestMapping(value = "/logoutAdmin")
+    public void logoutAdmin(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        PrintWriter out = response.getWriter();
+        try {
+            if (request.getParameter("logout") != null) {
+                if (request.getParameter("logout").equals("ok")) {
+                    request.removeAttribute("user");
+//                    request.removeAttribute("pass");
+                    HttpSession session = request.getSession();
+                    session.invalidate();
+                    response.sendRedirect("LoginAdmin.htm");
+                }
+            }
+        } finally {
+            out.close();
+        }
+    }
 }

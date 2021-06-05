@@ -39,6 +39,7 @@
 
                 }
             }
+           
         </script>
 
 
@@ -85,7 +86,7 @@
                                         <div class="x_title">
                                             <h4>Quản lí danh mục <small>  >> Sửa thông tin</small></h4>
                                             <div class="clearfix"></div>
-                                        <f:form class="form-horizontal form-label-left" action="UpdateCatalog.htm" commandName="updateCatalog" onsubmit="return validate()" method="POST">
+                                        <f:form id="myForm" class="form-horizontal form-label-left" action="UpdateCatalog.htm" commandName="updateCatalog" onsubmit="return validate()" method="POST">
                                             <div class="form-group message">
                                                 ${message}
                                             </div>
@@ -146,7 +147,7 @@
                                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Ảnh<span class="required">*</span>
                                                 </label>
                                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                                    <f:input type="file" id="images"  class="form-control col-md-7 col-xs-12" path="images" /> 
+                                                    <f:input type="file" id="images"  value="/POLO/jsp/Fontend/images/${catalog.images}" class="form-control col-md-7 col-xs-12" path="images" /> 
                                                 </div>
                                             </div>
                                             <div class="ln_solid"></div>

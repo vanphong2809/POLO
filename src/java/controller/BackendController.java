@@ -9,6 +9,7 @@ import entity.Catalog;
 import entity.Color;
 import entity.Group;
 import entity.Order;
+import entity.Post;
 import entity.Product;
 import entity.ProductColor;
 import entity.Provider;
@@ -30,6 +31,7 @@ import model.CatalogModel;
 import model.ColorModel;
 import model.GroupModel;
 import model.OrderModel;
+import model.PostModel;
 import model.ProductModel;
 import model.ProviderModel;
 import model.SizeModel;
@@ -64,6 +66,7 @@ public class BackendController {
     private GroupModel groupModel;
     private CheckEmail checkEmail;
     private OrderModel orderModel;
+    private PostModel postModel;
 
     public BackendController() {
         productModel = new ProductModel();
@@ -75,6 +78,7 @@ public class BackendController {
         groupModel = new GroupModel();
         checkEmail = new CheckEmail();
         orderModel = new OrderModel();
+        postModel = new PostModel();
     }
 
     @RequestMapping(value = "InsertProduct", method = RequestMethod.GET)
@@ -252,6 +256,21 @@ public class BackendController {
         return model;
     }
 
+    @RequestMapping(value = "deleteCatalog")
+    public String deleteCatalog(HttpSession session, @RequestParam("Id") int id) {
+//        ModelAndView model;
+        boolean check = false;
+
+//            model = new ModelAndView("Admin/AllCatalog");
+        check = catalogModel.deleteCatalog(id);
+        if (check) {
+            return "redirect:AllCatalog.htm";
+        } else {
+            return "error";
+        }
+
+    }
+
     @RequestMapping(value = "AllColor")
     public ModelAndView GetAllColor(HttpSession session) {
         ModelAndView model;
@@ -395,7 +414,8 @@ public class BackendController {
         model.getModelMap().put("updateCatalog", catalog);
         return model;
     }
-    @RequestMapping(value = "UpdateCatalog",method = RequestMethod.POST)
+
+    @RequestMapping(value = "UpdateCatalog", method = RequestMethod.POST)
     public String UpdateCatalog(@ModelAttribute("updateCatalog") Catalog catalog, ModelMap mm) {
         boolean result = false;
         result = catalogModel.updateCatalog(catalog);
@@ -406,14 +426,20 @@ public class BackendController {
             return "Admin/UpdateCatalog";
         }
     }
+
     @RequestMapping(value = "UpdateProduct", method = RequestMethod.GET)
-    public ModelAndView InitUpdateProduct(@RequestParam("Id")int id){
-        ModelAndView model=new ModelAndView("Admin/UpdateProduct");
-        Product product=productModel.getProductById(id);
+    public ModelAndView InitUpdateProduct(@RequestParam("Id") int id) {
+        ModelAndView model = new ModelAndView("Admin/UpdateProduct");
+        Product product = productModel.getProductById(id);
+        List<Provider> list = providerModel.getAllProvider();
+        List<Catalog> listCata = catalogModel.getAllCatalog();
         model.getModelMap().put("updateProduct", product);
+        model.getModelMap().put("listProvider", list);
+        model.getModelMap().put("listCatalog", listCata);
         return model;
     }
-    @RequestMapping(value = "UpdateProduct",method = RequestMethod.POST)
+
+    @RequestMapping(value = "UpdateProduct", method = RequestMethod.POST)
     public String UpdateProduct(@ModelAttribute("updateProduct") Product product, ModelMap mm) throws ParseException {
         boolean result = false;
         result = productModel.updateProduct(product);
@@ -423,5 +449,136 @@ public class BackendController {
             mm.put("message", "Sửa thẻ không thành công.");
             return "Admin/UpdateProduct";
         }
+    }
+
+    @RequestMapping(value = "UpdateColor", method = RequestMethod.GET)
+    public ModelAndView InitUpdateColor(@RequestParam("Id") int id) {
+        ModelAndView model = new ModelAndView("Admin/UpdateColor");
+        Color color = colorModel.GetColorById(id);
+        model.getModelMap().put("updateColor", color);
+        return model;
+    }
+
+    @RequestMapping(value = "UpdateColor", method = RequestMethod.POST)
+    public String UpdateColor(@ModelAttribute("updateColor") Color color, ModelMap mm) throws ParseException {
+        boolean result = false;
+        result = colorModel.updateColor(color);
+        if (result) {
+            return "redirect:AllColor.htm";
+        } else {
+            mm.put("message", "Sửa thẻ không thành công.");
+            return "Admin/UpdateColor";
+        }
+    }
+
+    @RequestMapping(value = "UpdateSize", method = RequestMethod.GET)
+    public ModelAndView InitUpdateSize(@RequestParam("Id") int id) {
+        ModelAndView model = new ModelAndView("Admin/UpdateSize");
+        Size size = sizeModel.GetSizeById(id);
+        model.getModelMap().put("updateSize", size);
+        return model;
+    }
+
+    @RequestMapping(value = "UpdateSize", method = RequestMethod.POST)
+    public String UpdateColor(@ModelAttribute("updateSize") Size size, ModelMap mm) throws ParseException {
+        boolean result = false;
+        result = sizeModel.updateSize(size);
+        if (result) {
+            return "redirect:AllSize.htm";
+        } else {
+            mm.put("message", "Sửa thẻ không thành công.");
+            return "Admin/UpdateSize";
+        }
+    }
+
+    @RequestMapping(value = "UpdateUser", method = RequestMethod.GET)
+    public ModelAndView InitUpdateUser(@RequestParam("Id") int id) {
+        ModelAndView model = new ModelAndView("Admin/UpdateUser");
+        User user = userModel.GetUserById(id);
+        List<Group> list = groupModel.GetAllGroup();
+        model.getModelMap().put("newUser", user);
+        model.getModelMap().put("listGroup", list);
+        model.getModelMap().put("updateUser", user);
+        return model;
+    }
+
+    @RequestMapping(value = "UpdateUser", method = RequestMethod.POST)
+    public String UpdateColor(@ModelAttribute("updateUser") User user, ModelMap mm) throws ParseException {
+        boolean result = false;
+        result = userModel.updateUser(user);
+
+        if (result) {
+            return "redirect:AllUser.htm";
+        } else {
+            mm.put("message", "Sửa thẻ không thành công.");
+            return "Admin/UpdateUser";
+        }
+    }
+
+    @RequestMapping(value = "deleteProduct")
+    public String deleteProduct(HttpSession session, @RequestParam("Id") int id) {
+        boolean check = false;
+        check = productModel.deleteProduct(id);
+        if (check) {
+            return "redirect:AllProduct.htm";
+        } else {
+            return "error";
+        }
+    }
+
+    @RequestMapping(value = "deleteColor")
+    public String deleteColor(HttpSession session, @RequestParam("Id") int id) {
+        boolean check = false;
+        check = colorModel.deleteColor(id);
+        if (check) {
+            return "redirect:AllColor.htm";
+        } else {
+            return "error";
+        }
+
+    }
+
+    @RequestMapping(value = "deleteSize")
+    public String deleteSize(HttpSession session, @RequestParam("Id") int id) {
+        boolean check = false;
+        check = sizeModel.deleteSize(id);
+        if (check) {
+            return "redirect:AllSize.htm";
+        } else {
+            return "error";
+        }
+
+    }
+
+    @RequestMapping(value = "deleteUser")
+    public String deleteUser(HttpSession session, @RequestParam("Id") int id) {
+        boolean check = false;
+        check = userModel.deleteUser(id);
+        if (check) {
+            return "redirect:AllUser.htm";
+        } else {
+            return "error";
+        }
+
+    }
+
+    @RequestMapping(value = "deleteGroup")
+    public String deleteGroup(HttpSession session, @RequestParam("Id") int id) {
+        boolean check = false;
+        check = groupModel.deleteGroup(id);
+        if (check) {
+            return "redirect:AllGroup.htm";
+        } else {
+            return "error";
+        }
+
+    }
+    
+    @RequestMapping(value = "getAllPost")
+    public ModelAndView getAllPost(){
+        ModelAndView model = new ModelAndView("Admin/Post");
+        List<Post> list = postModel.getAllPost();
+        model.getModelMap().put("listPost", list);
+        return model;
     }
 }

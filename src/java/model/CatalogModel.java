@@ -120,4 +120,21 @@ public class CatalogModel {
         }
         return result;
     }
+    public boolean deleteCatalog(int id){
+        Connection conn=null;
+        CallableStatement callSt=null;
+        boolean result=false;
+        try {
+            conn=ConnectionDB.openConnect();
+            callSt=conn.prepareCall("{call deleteCatalog(?)}");
+            callSt.setInt(1, id);
+            callSt.executeUpdate();
+            result=true;
+        } catch (Exception e) {
+            Logger.getLogger(CatalogModel.class.getName()).log(Level.SEVERE, null, e);
+        } finally{
+            ConnectionDB.closeConnect(conn, callSt);
+        }
+        return result;
+    }
 }

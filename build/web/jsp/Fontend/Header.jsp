@@ -87,7 +87,7 @@
                                                     </a>
                                                     &emsp;&emsp;&emsp;
                                                     <c:choose>
-                                                        <c:when test="${listCart.size()!=0}">
+                                                        <c:when test="${listCart.size()!=null}">
                                                             <a href="Payment.htm" class="btn btn-success">
 
                                                                 <i class="fa fa-credit-card">&nbsp; Thanh toán</i>

@@ -63,7 +63,7 @@ public class FontendController {
         SimpleDateFormat fomat = new SimpleDateFormat("dd-MM-yyyy");
         ModelAndView model=new ModelAndView("Fontend/Product");
         int pageInt = Integer.parseInt(page);
-        int sizeRowofPage=2;
+        int sizeRowofPage=4;
         HashMap map=paginationModel.getDataPagination(pageInt, sizeRowofPage);        
         List<Catalog> listCatalog=catalogModel.getAllCatalog();
         List<Provider> listProvider=providerModel.getAllProvider();

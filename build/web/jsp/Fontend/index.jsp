@@ -312,7 +312,7 @@
 
 
                                                             <div class="actions">
-                                                                 <input type="hidden" name="quantity" value="1">
+                                                                <input type="hidden" name="quantity" value="1">
                                                                 <input type="hidden" name="Id" value="${productDiscount.productId}">
                                                                 <button class="btn-transparent pull-xs-left" title="Cho vào giỏ hàng" type="submit"><span>Cho vào giỏ hàng</span></button>
                                                             </div>
@@ -334,24 +334,24 @@
             <!-- End middle slider --> 
 
             <!-- Latest Blog -->
-            <section class="latest-blog container">
-                <div class="blog-title">
-                    <h2><span>Tin tức</span></h2>
-                </div>
-                <c:forEach items="${listPost}" var="post">
-                    <div class="col-xs-12 col-sm-4">
-                        <div class="blog-img"> <a href="/tang-qua-gi-de-nguoi-nhan-thich"><img src="/POLO/jsp/Fontend/images/${post.images}" alt="${post.postTitle}"/></a>
-                        </div>
-                        <h3><a href="/tang-qua-gi-de-nguoi-nhan-thich">${post.postTitle}</a></h3>
-                        <div class="post-date"><i class="icon-calendar"></i>${post.created}</div>
-
-                        <p><p style="text-align: justify;"></p></p>
-
+            <!--            <section class="latest-blog container">
+                            <div class="blog-title">
+                                <h2><span>Tin tức</span></h2>
+                            </div>
+            <c:forEach items="${listPost}" var="post">
+                <div class="col-xs-12 col-sm-4">
+                    <div class="blog-img"> <a href="/tang-qua-gi-de-nguoi-nhan-thich"><img src="/POLO/jsp/Fontend/images/${post.images}" alt="${post.postTitle}"/></a>
                     </div>
-                </c:forEach>
+                    <h3><a href="/tang-qua-gi-de-nguoi-nhan-thich">${post.postTitle}</a></h3>
+                    <div class="post-date"><i class="icon-calendar"></i>${post.created}</div>
+
+                    <p><p style="text-align: justify;"></p></p>
+
+                </div>
+            </c:forEach>
 
 
-            </section>
+        </section>-->
             <!-- End Latest Blog -->
             <jsp:include page="Footer.jsp"></jsp:include>
 

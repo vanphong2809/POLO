@@ -85,12 +85,12 @@
                 </li>
             </ul>
         </li>
-        <li>
+<!--        <li>
             <a href="<%=request.getContextPath()%>/getAllFeeback.htm">
                             <i class="menu-icon fa fa-list"></i>
                              <span class="menu-text"> Quản lí bình luận </span>
              </a>
-        </li>
+        </li>-->
 
         <li class="">
             <a href="#" class="dropdown-toggle">

@@ -29,7 +29,8 @@
                         <div class="breadcrumbs" id="breadcrumbs">
                             <script type="text/javascript">
                                 try {
-                                    ace.settings.check('breadcrumbs', 'fixed')} catch (e) {
+                                    ace.settings.check('breadcrumbs', 'fixed')
+                                } catch (e) {
                                 }
                             </script>
 
@@ -65,12 +66,15 @@
                                                     <i class="fa fa-user fa-5x"></i>
                                                 </div>
                                                 <div class="col-xs-9 text-right">
-                                                    <div class="huge">${totalUser}</div>
+                                                    
                                                 <div>Số người dùng</div>
+                                                <div class="huge" style="color:yellow;font-size:20px;font-weight:bold">${totalUser}</div>
                                             </div>
                                         </div>
                                     </div>
-                                    <a href="#">
+                                 
+                            
+                                    <a href="<%=request.getContextPath()%>/AllUser.htm">
                                         <div class="panel-footer">
                                             <span class="pull-left">View Details</span>
                                             <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -79,7 +83,7 @@
                                     </a>
                                 </div>
                             </div>
-                            <div class="col-lg-3 col-md-6">
+<!--                            <div class="col-lg-3 col-md-6">
                                 <div class="panel panel-green">
                                     <div class="panel-heading">
                                         <div class="row">
@@ -100,8 +104,8 @@
                                         </div>
                                     </a>
                                 </div>
-                            </div>
-                            <div class="col-lg-3 col-md-6">
+                            </div>-->
+<!--                            <div class="col-lg-3 col-md-6">
                                 <div class="panel panel-yellow">
                                     <div class="panel-heading">
                                         <div class="row">
@@ -144,7 +148,7 @@
                                         </div>
                                     </a>
                                 </div>
-                            </div>
+                            </div>-->
 
 
                         </div><!-- /.row -->

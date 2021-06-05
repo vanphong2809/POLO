@@ -101,7 +101,7 @@
                                                 <h3>Cảm ơn bạn đã đặt hàng</h3>
                                                 <p>
 
-                                                    Một email xác nhận đã được gửi tới vanphong6822@gmail.com. Xin vui lòng kiểm tra email của bạn
+                                                    Một email xác nhận đã được gửi tới ${email}. Xin vui lòng kiểm tra email của bạn
 
                                                 </p>
                                                 <div style="font-style: italic;">

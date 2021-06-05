@@ -387,7 +387,7 @@
 
                                                                                                         <div class="form-group" bind-class="{'has-error' : invalidEmail}">
                                                                                                             <input data-error="Vui lòng nhập email" required bind="billing_address.email" 
-                                                                                                                   name="email" class="form-control" placeholder="Email" value="${us.email}"/>
+                                                                                                                   name="BillingAddress.Email" class="form-control" placeholder="Email" value="${us.email}"/>
                                                                                                             <div class="help-block with-errors"></div>
                                                                                                         </div>
 
@@ -421,7 +421,7 @@
                                                                                                         </div>
                                                                                                     </div>
                                                                                                 </div>
-                                                                                                <div class="section pt10">
+<!--                                                                                                <div class="section pt10">
                                                                                                     <div class="section__content">
                                                                                                         <div class="form-group" bind-show="requiresShipping">
                                                                                                             <div class="checkbox-wrapper">
@@ -441,13 +441,13 @@
                                                                                                             </div>
                                                                                                         </div>
                                                                                                     </div>
-                                                                                                </div>
+                                                                                                </div>-->
                                                                                                 <div class="section pt10" bind-show="otherAddress">
                                                                                                     <div class="section__header">
                                                                                                         <h2 class="section__title">
                                                                                                             <i class="fa fa-id-card-o fa-lg section__title--icon hidden-md hidden-lg" aria-hidden="true"></i>
                                                                                                             <label class="control-label">
-                                                                                                                Thông tin nhận hàng
+                                                                                                                Ghi chú
                                                                                                             </label>
                                                                                                         </h2>
                                                                                                     </div>

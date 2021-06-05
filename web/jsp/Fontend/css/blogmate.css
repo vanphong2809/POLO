@@ -647,5 +647,5 @@ blockquote cite a:visited {
 /*============ Blog end ============*/
 @media only screen and (min-width: 320px) and (max-width:479px) {.blog_entry-title a { font-size:18px} }
 @media only screen and (min-width: 480px) and (max-width: 767px) {.ad-spots img { width:auto}
-	.comment-form textarea;{ width:250px;}}
+	.comment-form textarea{ width:250px;}}
 @media only screen and (min-width: 480px) and (max-width: 767px) {.widget-content{ font-size:13px}}

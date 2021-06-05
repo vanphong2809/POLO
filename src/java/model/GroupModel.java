@@ -11,6 +11,8 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import util.ConnectionDB;
 
 /**
@@ -56,5 +58,22 @@ public class GroupModel {
             ConnectionDB.closeConnect(conn, callSt);
         }
         return check;
+    }
+      public boolean deleteGroup(int id) {
+        Connection conn = null;
+        CallableStatement callSt = null;
+        boolean result = false;
+        try {
+            conn = ConnectionDB.openConnect();
+            callSt = conn.prepareCall("{call deleteGroup(?)}");
+            callSt.setInt(1, id);
+            callSt.executeUpdate();
+            result = true;
+        } catch (Exception e) {
+            Logger.getLogger(CatalogModel.class.getName()).log(Level.SEVERE, null, e);
+        } finally {
+            ConnectionDB.closeConnect(conn, callSt);
+        }
+        return result;
     }
 }

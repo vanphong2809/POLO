@@ -164,23 +164,27 @@
                                         <p class="a-center">
                                             Hoặc đăng nhập bằng
                                         </p>
-                                        <!--                                        <script>function loginFacebook() {
-                                                                                        var a = {client_id: "947410958642584", redirect_uri: "https://store.mysapo.net/account/facebook_account_callback", state: JSON.stringify({redirect_url: window.location.href}), scope: "email", response_type: "code"}, b = "https://www.facebook.com/v3.2/dialog/oauth" + encodeURIParams(a, !0);
-                                                                                        window.location.href = b
-                                                                                    }
-                                                                                    function loginGoogle() {
-                                                                                        var a = {client_id: "885968593373-197u9i4pte44vmvcc0j50pvhlfvl27ds.apps.googleusercontent.com", redirect_uri: "https://store.mysapo.net/account/google_account_callback", scope: "email profile https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile", access_type: "online", state: JSON.stringify({redirect_url: window.location.href}), response_type: "code"}, b = "https://accounts.google.com/o/oauth2/v2/auth" + encodeURIParams(a, !0);
-                                                                                        window.location.href = b
-                                                                                    }
-                                                                                    function encodeURIParams(a, b) {
-                                                                                        var c = [];
-                                                                                        for (var d in a)
-                                                                                            if (a.hasOwnProperty(d)) {
-                                                                                                var e = a[d];
-                                                                                                null != e && c.push(encodeURIComponent(d) + "=" + encodeURIComponent(e))
-                                                                                            }
-                                                                                        return 0 == c.length ? "" : (b ? "?" : "") + c.join("&")
-                                                                                    }</script>-->
+                                        <script>
+                                            window.fbAsyncInit = function () {
+                                                FB.init({
+                                                    appId: '1861181127352213',
+                                                    xfbml: true,
+                                                    version: 'v10.0'
+                                                });
+                                                FB.AppEvents.logPageView();
+                                            };
+
+                                            (function (d, s, id) {
+                                                var js, fjs = d.getElementsByTagName(s)[0];
+                                                if (d.getElementById(id)) {
+                                                    return;
+                                                }
+                                                js = d.createElement(s);
+                                                js.id = id;
+                                                js.src = "https://connect.facebook.net/en_US/sdk.js";
+                                                fjs.parentNode.insertBefore(js, fjs);
+                                            }(document, 'script', 'facebook-jssdk'));
+                                        </script>
                                         <a href="https://www.facebook.com/dialog/oauth?client_id=1861181127352213&redirect_uri=http://localhost:8080/POLO/LoginFacebookServlet" class="social-login--facebook"><img width="129px" height="37px" alt="facebook-login-button" src="//bizweb.dktcdn.net/assets/admin/images/login/fb-btn.svg"></a>
                                         <a href="javascript:void(0)" class="social-login--google" onclick="loginGoogle()"><img width="129px" height="37px" alt="google-login-button" src="//bizweb.dktcdn.net/assets/admin/images/login/gp-btn.svg"></a>
                                     </div>

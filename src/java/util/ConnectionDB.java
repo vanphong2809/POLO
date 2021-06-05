@@ -19,7 +19,7 @@ import java.util.logging.Logger;
 public class ConnectionDB {
 
     private static final String DRIVER = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
-    private static final String URL = "jdbc:sqlserver://localhost:1433;databaseName=POLO";
+    private static final String URL = "jdbc:sqlserver://localhost:1433;databaseName=POLOLasted";
     private static final String USER = "sa";
     private static final String PASS = "12345";
 

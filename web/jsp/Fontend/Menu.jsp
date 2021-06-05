@@ -50,16 +50,10 @@
 
                                             <c:forEach items="${listCatalog}" var="catalog">
                                                 <li class="level1 nav-2-1 first parent"> <a href="getProductByCatalog.htm?Id=${catalog.catalogId}"> <span>${catalog.catalogName}</span> </a></li>
-                                            </c:forEach>
+                                                </c:forEach>
                                         </ul>
                                     </li>
-
-
-
-                                    <li class="level0 nacvv-8 level-top parent"> <a class="level-top" href="/tin-tuc"> <span>Tin tức</span> </a></li>
-
-
-
+                                    <li class="level0 nacvv-8 level-top parent"> <a class="level-top" href="/post.htm"> <span>Tin tức</span> </a></li>
                                     <li class="level0 nacvv-8 level-top parent"> <a class="level-top" href="/lien-he"> <span>Liên hệ</span> </a></li>
 
 
@@ -76,7 +70,8 @@
                 <li class="level0 parent drop-menu"><a href="about.htm"><span>Giới thiệu</span></a></li>
                 <li class="level0 parent drop-menu"><a href="getAllProduct.htm"><span>Sản phẩm</span></a>
                 </li>
-                <li class="level0 parent drop-menu"><a href="post.htm"><span>Tin tức</span></a></li>
+                <li class="level0 parent drop-menu"><a href="post.htm"><span>Tin tức</span></a>
+                </li>
                 <li class="level0 parent drop-menu"><a href="/lien-he"><span>Liên hệ</span></a></li>
             </ul>
         </div>

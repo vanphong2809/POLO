@@ -42,6 +42,7 @@ public class CartController {
             request.setCharacterEncoding("UTF-8");
             note = "Size:" + request.getParameter("option-1") + "; Color:" + request.getParameter("option-0");
         }
+        System.out.println(note);
         //Lay danh sach san pham cua khach hang trong session
         List<Cart> listCart = (List<Cart>) session.getAttribute("listCart");
         if (listCart == null) {
@@ -73,13 +74,16 @@ public class CartController {
     //tinh tong tien trong gio hang
     public int getTotal(List<Cart> listCart) {
         int total = 0;
-        for (Cart c : listCart) {
-            if (c.getProduct().getDiscount() == 0) {
-                total += c.getQuantity() * c.getProduct().getPriceOutput();
-            } else {
-                total += c.getQuantity() * c.getProduct().getPriceDiscount();
+        if (listCart != null) {
+            for (Cart c : listCart) {
+                if (c.getProduct().getDiscount() == 0) {
+                    total += c.getQuantity() * c.getProduct().getPriceOutput();
+                } else {
+                    total += c.getQuantity() * c.getProduct().getPriceDiscount();
+                }
             }
         }
+
         return total;
     }
 
@@ -96,13 +100,13 @@ public class CartController {
                 }
             }
         }
-        session.setAttribute("listCart",listCart);
-        session.setAttribute("total",getTotal(listCart));
+        session.setAttribute("listCart", listCart);
+        session.setAttribute("total", getTotal(listCart));
         return model;
     }
-    
+
     @RequestMapping(value = "/updateCart")
-    public ModelAndView update(HttpServletRequest request, HttpSession session,ModelMap mm) {
+    public ModelAndView update(HttpServletRequest request, HttpSession session, ModelMap mm) {
         ModelAndView model = new ModelAndView("Fontend/Cart");
 
         // lay dssp khach hang trong session 
@@ -111,14 +115,14 @@ public class CartController {
         String[] arrQuantity = request.getParameterValues("Lines");
 
         for (int i = 0; i < listCart.size(); i++) {
-            Product p=new Product();
+            Product p = new Product();
             listCart.get(i).setQuantity(Integer.parseInt(arrQuantity[i]));
 
 //          
             if (Integer.parseInt(arrQuantity[i]) < 1) {
                 listCart.get(i).setQuantity(1);
             }
-            if(listCart.get(i).getQuantity()>p.getQuantity()){
+            if (listCart.get(i).getQuantity() > p.getQuantity()) {
                 mm.put("messageQuantity", "vượt quá số lượng trong kho");
             }
         }
@@ -127,7 +131,7 @@ public class CartController {
         session.setAttribute("total", getTotal(listCart));
         return model;
     }
-    
+
     //xoa tat ca gio hang
     @RequestMapping(value = "/removeAllCart", method = RequestMethod.GET)
     public ModelAndView removeAllCart(HttpSession session) {
@@ -137,19 +141,19 @@ public class CartController {
         if (listCart != null) {
             listCart.removeAll(listCart);
         }
-        
-        session.setAttribute("listCart",listCart);
-        session.setAttribute("total",getTotal(listCart));
+
+        session.setAttribute("listCart", listCart);
+        session.setAttribute("total", getTotal(listCart));
         return model;
     }
-    
-    @RequestMapping(value="/MyCart")
-    public ModelAndView MyCart(HttpSession session,ModelMap mm){
-        ModelAndView model=new ModelAndView("Fontend/MyCart");
-        List<Cart> listCart=(List<Cart>) session.getAttribute("listCart");
-        if(listCart==null){
+
+    @RequestMapping(value = "/MyCart")
+    public ModelAndView MyCart(HttpSession session, ModelMap mm) {
+        ModelAndView model = new ModelAndView("Fontend/MyCart");
+        List<Cart> listCart = (List<Cart>) session.getAttribute("listCart");
+        if (listCart == null) {
             mm.put("message", "Không có sản phẩm nào trong giỏ hàng");
-        }else{
+        } else {
             model.getModelMap().put("list", listCart);
         }
         return model;

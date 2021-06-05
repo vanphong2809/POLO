@@ -93,14 +93,14 @@
                                                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Ảnh chính<span class="required">*</span>
                                                     </label>
                                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                                    <f:input id="images"  type="text" class="form-control col-md-7 col-xs-12" path="images" />
+                                                    <f:input id="images"  type="file" class="form-control col-md-7 col-xs-12" path="images" />
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Ảnh phụ<span class="required">*</span>
                                                 </label>
                                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                                    <f:input id="imagesHover" type="text" class="form-control col-md-7 col-xs-12" path="imageHover" />
+                                                    <f:input id="imagesHover" type="file" class="form-control col-md-7 col-xs-12" path="imageHover" />
                                                 </div>
                                             </div>
                                                     <div class="form-group">

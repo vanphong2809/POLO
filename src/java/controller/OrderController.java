@@ -70,6 +70,8 @@ public class OrderController {
         String orderName=us.getUserName();
         String phone=request.getParameter("BillingAddress.Phone");
         String email=request.getParameter("BillingAddress.Email");
+        System.out.println(email);
+        System.out.println(phone);
         String address=request.getParameter("BillingAddress.Address");
         String description=request.getParameter("description");
         Order order = new Order();
@@ -85,6 +87,7 @@ public class OrderController {
         model.getModelMap().put("us", us);
         model.getModelMap().put("listCart", listCart);
         model.getModelMap().put("total", total);
+        model.getModelMap().put("email", email);
         int orderIdNew = orderModel.getOrderIdNew();
         for (Cart cart : listCart) {
             OrderDetail orderDetail = new OrderDetail();

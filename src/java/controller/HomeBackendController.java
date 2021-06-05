@@ -7,11 +7,13 @@ package controller;
 
 import entity.User;
 import java.io.IOException;
+import java.io.PrintWriter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import model.AccountModel;
 import model.LoginModel;
+import model.UserModel;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -26,47 +28,57 @@ import util.HashPassword;
  */
 @Controller
 public class HomeBackendController {
+
     private LoginModel loginModel;
     private HashPassword hassPassword;
+    private UserModel userModel;
+
     public HomeBackendController() {
         loginModel = new LoginModel();
-        hassPassword=new HashPassword();
+        hassPassword = new HashPassword();
+        userModel = new UserModel();
     }
-    
-    @RequestMapping(value="/LoginAdmin",method = RequestMethod.GET)
-    public ModelAndView InitLogin(){
-        ModelAndView model=new ModelAndView("Admin/Login");
-        User user=new User();
+
+    @RequestMapping(value = "/LoginAdmin", method = RequestMethod.GET)
+    public ModelAndView InitLogin() {
+        ModelAndView model = new ModelAndView("Admin/Login");
+        User user = new User();
         model.addObject("user", user);
         return model;
     }
-    @RequestMapping(value="/LoginAdmin",method=RequestMethod.POST)
-    public String Login(@ModelAttribute("user") User user,ModelMap mm,HttpSession session) throws IOException{
-        int result=0;
+
+    @RequestMapping(value = "/LoginAdmin", method = RequestMethod.POST)
+    public String Login(@ModelAttribute("user") User user, ModelMap mm, HttpSession session) throws IOException {
+        int result = 0;
         user.setPassword(hassPassword.getMD5(user.getPassword()));
-        result=loginModel.checkLoginAdmin(user);
-        if(result==1){
+        user.setPassword(user.getPassword());
+        result = loginModel.checkLoginAdmin(user);
+        if (result == 1) {
             user.setUserName(loginModel.getUserNameByEmail(user.getEmail()));
             session.setAttribute("user", user.getUserName());
             return "redirect:HomeBackend.htm";
-        }else{
+        } else {
             String message = "Thông tin đăng nhập không chính xác.";
             mm.put("message", message);
             return "Admin/Login";
         }
     }
-    @RequestMapping(value="/HomeBackend")
-    public ModelAndView HomeBackend(HttpSession session){
+
+
+@RequestMapping(value = "/HomeBackend")
+        public ModelAndView HomeBackend(HttpSession session) {
         ModelAndView model;
-        if(AccountModel.CheckUrl(session)){
-            model=new ModelAndView("Admin/index");
+        int total=userModel.totalUser();
+        if (AccountModel.CheckUrl(session)) {
+            model = new ModelAndView("Admin/index");
+            session.setAttribute("totalUser", total);
             return model;
         } else {
             model = new ModelAndView("Admin/Login");
-            User user =new User();
+            User user = new User();
             model.getModelMap().put("user", user);
         }
         return model;
     }
-    
+
 }

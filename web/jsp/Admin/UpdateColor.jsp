@@ -78,7 +78,7 @@
                                         <div class="x_title">
                                             <h4>Quản lí màu sắc <small>  >> Sửa thông tin màu sắc</small></h4>
                                             <div class="clearfix"></div>
-                                        <f:form class="form-horizontal form-label-left" action="updateColor.htm" commandName="updateColor" onsubmit="return validate()">
+                                        <f:form class="form-horizontal form-label-left" action="UpdateColor.htm" commandName="updateColor" onsubmit="return validate()" method="POST">
                                              <div class="form-group message">
                                                  ${message}
                                              </div>
@@ -86,7 +86,7 @@
                                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Mã màu <span class="required">*</span>
                                                 </label>
                                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                                    <f:input type="text" id="colorId" class="form-control col-md-7 col-xs-12" path="colorId" readonly="readonly"/>
+                                                    <f:input type="text" id="colorId" class="form-control col-md-7 col-xs-12" path="colorId" readonly="true"/>
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -111,7 +111,7 @@
                                                    <f:select id="status" class="form-control col-md-7 col-xs-12" path="status" >
                                                       
                                                             
-                                                           <f:option value="True" label="Khích hoạt"/>
+                                                           <f:option value="True" label="Kích hoạt"/>
                                                            <f:option value="False" label="Không kích hoạt"/>
                                                        
                                                     </f:select>

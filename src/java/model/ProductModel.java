@@ -27,7 +27,24 @@ import util.ConnectionDB;
  * @author Win 10
  */
 public class ProductModel {
-
+    //xoa san pham
+    public boolean deleteProduct(int id){
+        Connection conn=null;
+        CallableStatement callSt=null;
+        boolean result=false;
+        try {
+            conn=ConnectionDB.openConnect();
+            callSt=conn.prepareCall("{call deleteProduct(?)}");
+            callSt.setInt(1, id);
+            callSt.executeUpdate();
+            result=true;
+        } catch (Exception e) {
+            Logger.getLogger(CatalogModel.class.getName()).log(Level.SEVERE, null, e);
+        } finally{
+            ConnectionDB.closeConnect(conn, callSt);
+        }
+        return result;
+    }
     //them san pham
     public boolean insertProduct(Product p) {
         Connection conn = null;
@@ -561,7 +578,8 @@ public class ProductModel {
             calla.setString(11, product.getCreated());
             calla.setString(12, product.getImageHover());
             calla.setBoolean(13, product.isStatus()); 
-            calla.setInt(14, product.getDiscount());           
+            calla.setInt(14, product.getDiscount());      
+            calla.executeUpdate();
             result = true;
         } catch (SQLException ex) {
             Logger.getLogger(ProductModel.class.getName()).log(Level.SEVERE, null, ex);

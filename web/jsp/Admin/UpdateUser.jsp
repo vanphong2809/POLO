@@ -19,7 +19,7 @@
                 var address = document.getElementById("address").value;
                 var email = document.getElementById("email").value;
                 var sdt = document.getElementById("phone").value;
-                 var pattern=/^([a-zA-Z0-9_.-])+@([a-zA-Z0-9_.-])+\.([a-zA-Z])+([a-zA-Z])+/;
+                var pattern = /^([a-zA-Z0-9_.-])+@([a-zA-Z0-9_.-])+\.([a-zA-Z])+([a-zA-Z])+/;
                 if (userName != "" && pass != "" && address != "" && email != "" && sdt != "" && pattern.test(email) == true) {
                     return true;
                 } else {
@@ -33,22 +33,22 @@
                         document.getElementById("address").focus();
                         return false;
                     }
-                    if(sdt == ""){
-                          swal("Bạn phải nhập số điện thoại.");
+                    if (sdt == "") {
+                        swal("Bạn phải nhập số điện thoại.");
                         document.getElementById("phone").focus();
                         return false;
                     }
-                      if (email == "") {
+                    if (email == "") {
                         swal("Bạn phải nhập email.");
                         document.getElementById("email").focus();
                         return false;
                     } else {
-                         if(!pattern.test(email)){
-                        swal("Email sai định dạng.");
-                        document.getElementById("email").focus();
-                        return false; 
-                }
-                        
+                        if (!pattern.test(email)) {
+                            swal("Email sai định dạng.");
+                            document.getElementById("email").focus();
+                            return false;
+                        }
+
                     }
 
                 }
@@ -98,25 +98,25 @@
                                         <div class="x_title">
                                             <h4>Quản lí người dùng <small>  >> Sửa thông tin người dùng</small></h4>
                                             <div class="clearfix"></div>
-                                        <f:form class="form-horizontal form-label-left" action="updateUser.htm" commandName="updateUser" onsubmit="return validate()">
+                                        <f:form class="form-horizontal form-label-left" action="UpdateUser.htm" commandName="updateUser" onsubmit="return validate()">
                                             <div class="form-group message">
-                                                 ${message}
-                                             </div>
+                                                ${message}
+                                            </div>
                                             <div class="form-group">
                                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Mã người dùng <span class="required">*</span>
                                                 </label>
                                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                                    <f:input type="text" id="userId" class="form-control col-md-7 col-xs-12" path="userId" readonly="readonly" />
+                                                    <f:input type="text" id="userId" class="form-control col-md-7 col-xs-12" path="userId" readonly="true" />
                                                 </div>
                                             </div>
-                                             <div class="form-group">
+                                            <div class="form-group">
                                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Tên đăng nhập <span class="required">*</span>
                                                 </label>
                                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                                     <f:input type="text" id="userName" class="form-control col-md-7 col-xs-12" path="userName" />
                                                 </div>
                                             </div>
-                                                <div class="form-group">
+                                            <div class="form-group">
                                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Mật khẩu <span class="required">*</span>
                                                 </label>
                                                 <div class="col-md-6 col-sm-6 col-xs-12">
@@ -134,16 +134,29 @@
                                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Số điện thoại<span class="required">*</span>
                                                 </label>
                                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                                      <f:input type="text" id="phone"  class="form-control col-md-7 col-xs-12" path="phone" /> 
+                                                    <f:input type="text" id="phone"  class="form-control col-md-7 col-xs-12" path="phone" /> 
                                                 </div>
                                             </div>
-                                                 <div class="form-group">
+                                            <div class="form-group">
                                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Email<span class="required">*</span>
                                                 </label>
                                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                                      <f:input type="text" id="email"  class="form-control col-md-7 col-xs-12" path="email" /> 
+                                                    <f:input type="text" id="email"  class="form-control col-md-7 col-xs-12" path="email" /> 
                                                 </div>
                                             </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Group <span class="required">*</span>
+                                                </label>
+                                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                                   <f:select id="groupId" class="form-control col-md-7 col-xs-12" path="groupId" >
+
+                                                        <c:forEach items="${listGroup}" var="group">
+                                                            <f:option value="${group.groupId}" >${group.groupName}</f:option>
+                                                        </c:forEach>
+                                                    </f:select>
+                                                </div>
+                                            </div>
+
                                             <div class="form-group">
                                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Trạng thái <span class="required">*</span>
                                                 </label>

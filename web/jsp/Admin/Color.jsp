@@ -107,11 +107,8 @@
                                                      
                                                     <td>
                                                         <div class="hidden-sm hidden-xs action-buttons">
-                                                            <a class="blue" href="#">
-                                                                <i class="ace-icon fa fa-search-plus bigger-130"></i>
-                                                            </a>
 
-                                                            <a class="green" href="initUpdateColor.htm?Id=${color.colorId}">
+                                                            <a class="green" href="UpdateColor.htm?Id=${color.colorId}">
                                                                 <i class="ace-icon fa fa-pencil bigger-130"></i>
                                                             </a>
 

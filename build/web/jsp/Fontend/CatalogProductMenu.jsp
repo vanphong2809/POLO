@@ -12,10 +12,6 @@
     <!-- BEGIN BOX-CATEGORY -->
     <div class="box-content box-category" id="pro">
         <ul>
-
-
-            <li> <a  href="#">Sản phẩm khuyến mại</a> </li>
-            <li> <a  href="#">Sản phẩm nổi bật</a> </li>
             <c:forEach items="${listCatalog}" var="catalog">
                 <li> 
                     <a  href="#" class="${catalog.catalogId}">${catalog.catalogName}</a> 

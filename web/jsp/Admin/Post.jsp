@@ -88,7 +88,7 @@
                                                 <tr>
                                                     <td>${post.postId}</td>
                                                     <td> <img src="/POLO/jsp/Fontend/images/${post.images}" class="img-fix3" ></td>
-                                                    <td class="hidden-480">${post.catalogPostId}</td>
+                                         
                                                     <td>${post.content}</td>
                                                     <td>${post.created}</td>
                                                     <c:if test="${post.status == 'True'}">

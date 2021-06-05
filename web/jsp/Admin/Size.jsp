@@ -110,11 +110,8 @@
                                                      
                                                     <td>
                                                         <div class="hidden-sm hidden-xs action-buttons">
-                                                            <a class="blue" href="#">
-                                                                <i class="ace-icon fa fa-search-plus bigger-130"></i>
-                                                            </a>
 
-                                                            <a class="green" href="initUpdateSize.htm?Id= ${size.sizeId}">
+                                                            <a class="green" href="UpdateSize.htm?Id= ${size.sizeId}">
                                                                 <i class="ace-icon fa fa-pencil bigger-130"></i>
                                                             </a>
 

@@ -28,13 +28,13 @@
                 <div class="col-xs-12 col-sm-6 col-md-5">
                     <div class="social">
                         <ul>
-                            <li class="fb"><a href="1"></a></li>
+                            <li class="fb"><a href="https://www.facebook.com/phong.elpulga"></a></li>
                             <li class="tw"><a href="2"></a></li>
                             <li class="googleplus"><a href="Về chúng tôi"></a></li>
                             <li class="rss"><a href="3"></a></li>
                             <li class="pintrest"><a href="4"></a></li>
                             <li class="linkedin"><a href="6"></a></li>
-                            <li class="youtube"><a href="5"></a></li>
+                            <li class="youtube"><a href="https://www.youtube.com/channel/UCzcgPsQ1EERxiFIKH8n1CMQ"></a></li>
                         </ul>
                     </div>
                 </div>
