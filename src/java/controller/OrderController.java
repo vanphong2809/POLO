@@ -5,6 +5,7 @@
  */
 package controller;
 
+import DTO.OrderDetailDTO;
 import entity.Cart;
 import entity.Order;
 import entity.OrderDetail;
@@ -21,6 +22,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import util.EmailUtil;
 
@@ -41,7 +43,7 @@ public class OrderController {
         userModel = new UserModel();
     }
 
-    @RequestMapping(value = "/Payment",method=RequestMethod.POST)
+    @RequestMapping(value = "/Payment", method = RequestMethod.POST)
     public ModelAndView order(HttpServletRequest request, HttpSession session) throws MessagingException {
         List<Cart> listCart = (List<Cart>) session.getAttribute("listCart");
         String b = "<table border ='1'><thead><tr><th>Tên sản phẩm</th> <th></th><th>Giá</th><th>Số lượng</th> <th>Tổng</th></tr> </thead> <tbody>";
@@ -66,14 +68,14 @@ public class OrderController {
         String name = (String) session.getAttribute("account");
         User us = userModel.getUserByEmail(name);
         int total = (Integer) session.getAttribute("total");
-        int userId=us.getUserId();
-        String orderName=us.getUserName();
-        String phone=request.getParameter("BillingAddress.Phone");
-        String email=request.getParameter("BillingAddress.Email");
+        int userId = us.getUserId();
+        String orderName = us.getUserName();
+        String phone = request.getParameter("BillingAddress.Phone");
+        String email = request.getParameter("BillingAddress.Email");
         System.out.println(email);
         System.out.println(phone);
-        String address=request.getParameter("BillingAddress.Address");
-        String description=request.getParameter("description");
+        String address = request.getParameter("BillingAddress.Address");
+        String description = request.getParameter("description");
         Order order = new Order();
         order.setTotalAmount(total);
         order.setUserId(us.getUserId());
@@ -93,25 +95,35 @@ public class OrderController {
             OrderDetail orderDetail = new OrderDetail();
             orderDetail.setOrderId(orderIdNew);
             orderDetail.setProductId(cart.getProduct().getProductId());
-            if(cart.getProduct().getDiscount()==0){
+            if (cart.getProduct().getDiscount() == 0) {
                 orderDetail.setPrice(cart.getProduct().getPriceOutput());
-            }else{
+            } else {
                 orderDetail.setPrice(cart.getProduct().getPriceDiscount());
             }
-            orderDetail.setAmount(cart.getQuantity()*orderDetail.getPrice());
+            orderDetail.setAmount(cart.getQuantity() * orderDetail.getPrice());
             orderDetail.setQuantity(cart.getQuantity());
             orderDetail.setNote(request.getParameter("description"));
+            orderDetail.setColorId(Integer.parseInt(cart.getColor()));
+            orderDetail.setSizeId(Integer.parseInt(cart.getSize()));
             orderModel.insertOrderDetail(orderDetail);
             orderModel.updateBuyItem(cart.getProduct().getProductId(), cart.getQuantity());
         }
 
-        if(us.getEmail()==null){
+        if (us.getEmail() == null) {
             us.setEmail(request.getParameter("email"));
         }
         request.setAttribute("messageSuc", "Đặt hàng thành công!");
         EmailUtil.sendMail(us.getEmail(), "POLO Shop. Xác nhận đặt hàng", "Đặt hàng thành công. Cảm ơn bạn đã sử dụng dịch vụ của chúng tôi.Đơn hàng của bạn" + b);
         session.removeAttribute("listCart");
         session.removeAttribute("total");
+        return model;
+    }
+
+    @RequestMapping(value = "/orderDetail", method = RequestMethod.GET)
+    public ModelAndView orderDetail(@RequestParam("Id") int id) {
+        ModelAndView model = new ModelAndView("Admin/OrderDetail");
+        List<OrderDetailDTO> orderDetail=orderModel.getOrderDetail(id);
+        model.getModelMap().put("orderDetail", orderDetail);
         return model;
     }
 }

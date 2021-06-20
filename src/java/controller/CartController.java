@@ -42,13 +42,16 @@ public class CartController {
             request.setCharacterEncoding("UTF-8");
             note = "Size:" + request.getParameter("option-1") + "; Color:" + request.getParameter("option-0");
         }
-        System.out.println(note);
+        String color = "";
+        String size = "";
+        color = request.getParameter("option-0");
+        size = request.getParameter("option-1");
         //Lay danh sach san pham cua khach hang trong session
         List<Cart> listCart = (List<Cart>) session.getAttribute("listCart");
         if (listCart == null) {
             //trong session khong co san pham nao
             listCart = new ArrayList<>();
-            listCart.add(new Cart(productModel.getProductById(id), quantity, note));
+            listCart.add(new Cart(productModel.getProductById(id), color, size, quantity, note));
         } else {
             //trong session da ton tai san pham
             boolean flag = false;
@@ -62,7 +65,7 @@ public class CartController {
                 }
             }
             if (!flag) {
-                listCart.add(new Cart(productModel.getProductById(id), quantity, note));
+                listCart.add(new Cart(productModel.getProductById(id),color, size, quantity, note));
             }
         }
         //dua gio hang len session

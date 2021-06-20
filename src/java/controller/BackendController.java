@@ -26,6 +26,7 @@ import java.util.List;
 import java.util.TreeMap;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 import model.AccountModel;
 import model.CatalogModel;
 import model.ColorModel;
@@ -45,6 +46,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import util.CheckEmail;
@@ -411,12 +413,15 @@ public class BackendController {
     public ModelAndView InitUpdateCatalog(@RequestParam("Id") int id) {
         ModelAndView model = new ModelAndView("Admin/UpdateCatalog");
         Catalog catalog = catalogModel.GetCatalogById(id);
+        List<Catalog> catalogs = catalogModel.getAllCatalog();
         model.getModelMap().put("updateCatalog", catalog);
+        model.getModelMap().put("listCatalog", catalogs);
         return model;
     }
 
     @RequestMapping(value = "UpdateCatalog", method = RequestMethod.POST)
     public String UpdateCatalog(@ModelAttribute("updateCatalog") Catalog catalog, ModelMap mm) {
+
         boolean result = false;
         result = catalogModel.updateCatalog(catalog);
         if (result) {
@@ -573,9 +578,9 @@ public class BackendController {
         }
 
     }
-    
+
     @RequestMapping(value = "getAllPost")
-    public ModelAndView getAllPost(){
+    public ModelAndView getAllPost() {
         ModelAndView model = new ModelAndView("Admin/Post");
         List<Post> list = postModel.getAllPost();
         model.getModelMap().put("listPost", list);

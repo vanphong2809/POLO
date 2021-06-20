@@ -7,6 +7,7 @@ package controller;
 
 import entity.Catalog;
 import entity.Color;
+import entity.Contact;
 import entity.ImageLink;
 import entity.New;
 import entity.Post;
@@ -26,14 +27,17 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import model.CatalogModel;
 import model.ColorModel;
+import model.ContactModel;
 import model.NewModel;
 import model.PaginationModel;
 import model.PostModel;
 import model.ProductModel;
 import model.ProviderModel;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import util.ConnectionDB;
@@ -44,35 +48,40 @@ import util.ConnectionDB;
  */
 @Controller
 public class FontendController {
+
     private ProductModel productModel;
     private CatalogModel catalogModel;
     private ProviderModel providerModel;
     private PaginationModel paginationModel;
     private PostModel postModel;
     private ColorModel colorModel;
+    private ContactModel contactModel;
+
     public FontendController() {
-        productModel=new ProductModel();
+        productModel = new ProductModel();
         catalogModel = new CatalogModel();
         providerModel = new ProviderModel();
         paginationModel = new PaginationModel();
         postModel = new PostModel();
-        colorModel=new ColorModel();
+        colorModel = new ColorModel();
+        contactModel = new ContactModel();
     }
-    @RequestMapping(value="getAllProduct")
-    public ModelAndView getAllProduct(@RequestParam(value="page", defaultValue = "1") String page){
+
+    @RequestMapping(value = "getAllProduct")
+    public ModelAndView getAllProduct(@RequestParam(value = "page", defaultValue = "1") String page) {
         SimpleDateFormat fomat = new SimpleDateFormat("dd-MM-yyyy");
-        ModelAndView model=new ModelAndView("Fontend/Product");
+        ModelAndView model = new ModelAndView("Fontend/Product");
         int pageInt = Integer.parseInt(page);
-        int sizeRowofPage=4;
-        HashMap map=paginationModel.getDataPagination(pageInt, sizeRowofPage);        
-        List<Catalog> listCatalog=catalogModel.getAllCatalog();
-        List<Provider> listProvider=providerModel.getAllProvider();
+        int sizeRowofPage = 4;
+        HashMap map = paginationModel.getDataPagination(pageInt, sizeRowofPage);
+        List<Catalog> listCatalog = catalogModel.getAllCatalog();
+        List<Provider> listProvider = providerModel.getAllProvider();
         List<Product> listProduct = new ArrayList<>();
         String url = (String) map.get("url");//chuỗi phân trang
         try {
             ResultSet rs = (ResultSet) map.get("rs");
             while (rs.next()) {
-               Product p = new Product();
+                Product p = new Product();
                 p.setProductId(rs.getInt("ProductId"));
                 p.setProductName(rs.getString("ProductName"));
                 p.setProductContent(rs.getString("ProductContent"));
@@ -157,17 +166,19 @@ public class FontendController {
 //        model.getModelMap().put("url", url);
 //        return model;
 //    }
+
     @RequestMapping(value = "getProductByCatalog")
-    public ModelAndView getProductByCatalog(@RequestParam("Id") int id){
-        ModelAndView model=new ModelAndView("Fontend/Product");
-        List<Product> listProduct=productModel.getProductByCatalogId(id);
-        List<Catalog> listCatalog=catalogModel.getAllCatalog();
-        List<Product> list=productModel.getAllProduct();
+    public ModelAndView getProductByCatalog(@RequestParam("Id") int id) {
+        ModelAndView model = new ModelAndView("Fontend/Product");
+        List<Product> listProduct = productModel.getProductByCatalogId(id);
+        List<Catalog> listCatalog = catalogModel.getAllCatalog();
+        List<Product> list = productModel.getAllProduct();
         model.getModelMap().put("listProductByCatalogId", listProduct);
         model.getModelMap().put("listCatalog", listCatalog);
         model.getModelMap().put("listProduct", list);
         return model;
     }
+
     @RequestMapping(value = "getProduct")
     public ModelAndView getProduct(@RequestParam("Id") int id) {
         ModelAndView model = new ModelAndView("Fontend/AllProduct");
@@ -175,24 +186,25 @@ public class FontendController {
         model.getModelMap().put("listProduct", listProduct);
         return model;
     }
-    @RequestMapping(value="getProductByProvider")
-    public ModelAndView getProductByProvider(@RequestParam("Id") int id){
-        ModelAndView model=new ModelAndView("Fontend/AllProduct");
-        List<Product> listProduct=productModel.getProductByProviderId(id);
+
+    @RequestMapping(value = "getProductByProvider")
+    public ModelAndView getProductByProvider(@RequestParam("Id") int id) {
+        ModelAndView model = new ModelAndView("Fontend/AllProduct");
+        List<Product> listProduct = productModel.getProductByProviderId(id);
         model.getModelMap().put("listProduct", listProduct);
         return model;
     }
-    
-    @RequestMapping(value="productDetail")
-    public ModelAndView getProductDetail(@RequestParam("Id") int id){
-        ModelAndView model=new ModelAndView("Fontend/ProductDetail");
-        Product product=productModel.getProductById(id);
-        List<Product> listPrRe=productModel.getProductRelated(product);
-        List<ImageLink> listImageLink=productModel.getImageLink(id);
-        List<ImageLink> listImagelinkDetail=productModel.getImageLinkDetail(id);
-        List<ProductColor> listProductColor=productModel.getProductColor(id);
-        List<ProductSize> listProductSize=productModel.getProductSize(id);
-        List<Catalog> listCatalog=catalogModel.getAllCatalog();
+
+    @RequestMapping(value = "productDetail")
+    public ModelAndView getProductDetail(@RequestParam("Id") int id) {
+        ModelAndView model = new ModelAndView("Fontend/ProductDetail");
+        Product product = productModel.getProductById(id);
+        List<Product> listPrRe = productModel.getProductRelated(product);
+        List<ImageLink> listImageLink = productModel.getImageLink(id);
+        List<ImageLink> listImagelinkDetail = productModel.getImageLinkDetail(id);
+        List<ProductColor> listProductColor = productModel.getProductColor(id);
+        List<ProductSize> listProductSize = productModel.getProductSize(id);
+        List<Catalog> listCatalog = catalogModel.getAllCatalog();
         model.getModelMap().put("product", product);
         model.getModelMap().put("listPrRe", listPrRe);
         model.getModelMap().put("imageLink", listImageLink);
@@ -202,23 +214,45 @@ public class FontendController {
         model.getModelMap().put("listCatalog", listCatalog);
         return model;
     }
+
     @RequestMapping(value = "about")
-    public ModelAndView about(){
-        ModelAndView model=new ModelAndView("Fontend/About");
+    public ModelAndView about() {
+        ModelAndView model = new ModelAndView("Fontend/About");
         return model;
     }
-    @RequestMapping(value="post")
-    public ModelAndView newPost(){
-        ModelAndView model=new ModelAndView("Fontend/New");
-        List<Post> newPost=postModel.getAllPost();
+
+    @RequestMapping(value = "post")
+    public ModelAndView newPost() {
+        ModelAndView model = new ModelAndView("Fontend/New");
+        List<Post> newPost = postModel.getAllPost();
         model.getModelMap().put("newPost", newPost);
         return model;
     }
-   @RequestMapping(value="PostDetail")
-   public ModelAndView postDetail(@RequestParam("Id") int id){
-       ModelAndView model= new ModelAndView("Fontend/NewDetail");
-       Post p=postModel.getPostById(id);
-       model.getModelMap().put("postDetail", p);
-       return model;
-   }
+
+    @RequestMapping(value = "PostDetail")
+    public ModelAndView postDetail(@RequestParam("Id") int id) {
+        ModelAndView model = new ModelAndView("Fontend/NewDetail");
+        Post p = postModel.getPostById(id);
+        model.getModelMap().put("postDetail", p);
+        return model;
+    }
+
+    @RequestMapping(value = "contact", method = RequestMethod.GET)
+    public ModelAndView InitInsertContact() {
+        ModelAndView model = new ModelAndView("Fontend/Contact");
+        Contact contact = new Contact();
+        model.getModelMap().put("newContact", contact);
+        return model;
+    }
+
+    @RequestMapping(value = "contact", method = RequestMethod.POST)
+    public String InsertContact(@ModelAttribute("newContact") Contact contact, ModelMap mm) {
+        boolean check = contactModel.insertContact(contact);
+        if (check) {
+            return "redirect:contact.htm";
+        } else {
+            mm.put("message", "Thêm mới không thành công");
+            return "Fontend/contact";
+        }
+    }
 }

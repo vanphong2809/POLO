@@ -11,14 +11,18 @@ package entity;
  */
 public class Cart {
     private Product product;
+    private String color;
+    private String size;
     private int quantity;
     private String note;
 
     public Cart() {
     }
 
-    public Cart(Product product, int quantity, String note) {
+    public Cart(Product product, String color, String size, int quantity, String note) {
         this.product = product;
+        this.color = color;
+        this.size = size;
         this.quantity = quantity;
         this.note = note;
     }
@@ -29,6 +33,22 @@ public class Cart {
 
     public void setProduct(Product product) {
         this.product = product;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public String getSize() {
+        return size;
+    }
+
+    public void setSize(String size) {
+        this.size = size;
     }
 
     public int getQuantity() {
@@ -46,5 +66,7 @@ public class Cart {
     public void setNote(String note) {
         this.note = note;
     }
+
+
     
 }

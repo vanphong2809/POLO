@@ -1,10 +1,10 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@taglib uri="http://www.springframework.org/tags/form" prefix="f"%>
+<%@taglib prefix="f" uri="http://www.springframework.org/tags/form" %>
 <%@taglib uri="http://www.springframework.org/tags" prefix="s"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -17,29 +17,54 @@
                 var catalogName = document.getElementById("catalogName").value;
                 var des = document.getElementById("descriptions").value;
                 var dis = document.getElementById("displayNumber").value;
-                if (catalogName != "" && des != "" && dis != "") {
+                var images = document.getElementById("images").value;
+                var pattern = /^[0-9][0-9]*$/;
+
+                if (catalogName != "" && des != "" && dis != "" && pattern.test(dis) == true && images!="") {
                     return true;
                 } else {
+                    if (catalogName != "") {
+                        document.getElementById("error-catalogName").innerHTML = "";
+                    }
+                    if (des != "") {
+                        document.getElementById("error-descriptions").innerHTML = "";
+                    }
+                    if (dis != "") {
+                        document.getElementById("error-displayNumber").innerHTML = "";
+                    }
+                    if (images != "") {
+                        document.getElementById("error-images").innerHTML = "";
+                    }
                     if (catalogName == "") {
-                        swal("Bạn phải nhập tên danh mục sản phẩm.");
+                        document.getElementById("error-catalogName").innerHTML = "Bạn phải nhập tên danh mục sản phẩm.";
                         document.getElementById("catalogName").focus();
                         return false;
                     }
                     if (des == "") {
-                        swal("Bạn phải nhập mô tả danh mục sản phẩm.");
+                        document.getElementById("error-descriptions").innerHTML = "Bạn phải nhập mô tả danh mục sản phẩm.";
                         document.getElementById("descriptions").focus();
                         return false;
                     }
                     if (dis == "") {
-
-                        swal("Bạn phải nhập mức độ ưu tiên hiển thi của danh mục.");
+                        document.getElementById("error-displayNumber").innerHTML = "Bạn phải nhập mức độ ưu tiên hiển thị của danh mục.";
                         document.getElementById("displayNumber").focus();
                         return false;
+                    } else {
+                        if (!pattern.test(dis)) {
+//                            alert("Độ ưu tiên hiển thị phải là số. Mời bạn nhập lại.");
+                            document.getElementById("error-displayNumber").innerHTML = "Độ ưu tiên hiển thị phải là số";
+                            document.getElementById("displayNumber").focus();
+                            return false;
+                        }
                     }
-
+                    if (images == "") {
+                        document.getElementById("error-images").innerHTML = "Bạn phải chọn ảnh";
+                        document.getElementById("images").focus();
+                        return false;
+                    }
                 }
             }
-           
+
         </script>
 
 
@@ -86,7 +111,7 @@
                                         <div class="x_title">
                                             <h4>Quản lí danh mục <small>  >> Sửa thông tin</small></h4>
                                             <div class="clearfix"></div>
-                                        <f:form id="myForm" class="form-horizontal form-label-left" action="UpdateCatalog.htm" commandName="updateCatalog" onsubmit="return validate()" method="POST">
+                                        <f:form accept-charset="UTF-8" id="myForm" class="form-horizontal form-label-left" action="UpdateCatalog.htm" commandName="updateCatalog" onsubmit="return validate()" method="POST">
                                             <div class="form-group message">
                                                 ${message}
                                             </div>
@@ -103,6 +128,8 @@
                                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                                     <f:input type="text" id="catalogName" class="form-control col-md-7 col-xs-12" path="catalogName" />
                                                 </div>
+                                                <div id="error-catalogName" style="color:red; font-size: 14px;"></div>
+
                                             </div>
                                             <div class="form-group">
                                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Mô tả <span class="required">*</span>
@@ -110,6 +137,7 @@
                                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                                     <f:input type="text" id="descriptions"  class="form-control col-md-7 col-xs-12" path="descriptions" /> 
                                                 </div>
+                                                <div id="error-descriptions" style="color:red; font-size: 14px;"></div>
                                             </div>
                                             <div class="form-group">
                                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Danh mục cha <span class="required">*</span>
@@ -127,8 +155,10 @@
                                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Độ ưu tiên hiển thị<span class="required">*</span>
                                                 </label>
                                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                                    <f:input type="text" id="displayNumber"  class="form-control col-md-7 col-xs-12" path="displayNumber" /> 
+                                                    <f:input type="text" id="displayNumber" class="form-control col-md-7 col-xs-12" path="displayNumber" /> 
+                                                    <form:errors path="displayNumber"/>
                                                 </div>
+                                                <div id="error-displayNumber" style="color:red; font-size: 14px;"></div>
                                             </div>
                                             <div class="form-group">
                                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Trạng thái <span class="required">*</span>
@@ -149,6 +179,7 @@
                                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                                     <f:input type="file" id="images"  value="/POLO/jsp/Fontend/images/${catalog.images}" class="form-control col-md-7 col-xs-12" path="images" /> 
                                                 </div>
+                                                <div id="error-images" style="color:red; font-size: 14px;"></div>
                                             </div>
                                             <div class="ln_solid"></div>
                                             <div class="form-group">

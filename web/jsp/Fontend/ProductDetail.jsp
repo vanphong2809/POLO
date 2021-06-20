@@ -193,7 +193,7 @@
 
                                                             <div class="tooltip">${color.colorName}</div>
 
-                                                            <input id="${color.colorName}" type="radio" name="option-0" value="${color.colorName}"   />
+                                                            <input id="${color.colorName}" type="radio" name="option-0" value="${color.colorId}"   />
 
                                                             <label for="${color.colorName}" style="background-color: ${color.natation}">
                                                                 <img class="crossed-out" src="/POLO/jsp/Fontend/images/soldout.png" />
@@ -212,7 +212,7 @@
                                                     <c:forEach items="${listProductSize}" var="size">
                                                         <div data-value="${size.sizeName}" class="prodDetailSwatchElement swatch-element x available">
 
-                                                            <input id="${size.sizeName}" type="radio" name="option-1" value="${size.sizeName}"   />
+                                                            <input id="${size.sizeName}" type="radio" name="option-1" value="${size.sizeId}"   />
 
                                                             <label for="${size.sizeName}">
                                                                 ${size.sizeName}

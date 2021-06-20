@@ -12,7 +12,10 @@
     <div class="sidebar-shortcuts" id="sidebar-shortcuts">
         <div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
             <button class="btn btn-success">
-                <i class="ace-icon fa fa-signal"></i>
+                <a href="revenueStatistic.htm">
+                    <i class="ace-icon fa fa-signal"></i>
+                </a>
+                
             </button>
 
             <button class="btn btn-info">

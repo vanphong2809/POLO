@@ -236,7 +236,7 @@
                                     <f:input type="text" class="input-control" name="PhoneNumber" id="phone" value="" path="phone"
                                              />
                                     <label>Email <span class="required">*</span></label>
-                                    <f:input type="text" class="input-control"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"  name="email" id="email" required="" path="email" placeholder="example@gmail.com"/>
+                                    <f:input type="text" class="input-control"  name="email" id="email" required="" path="email" placeholder="example@gmail.com"/>
                                     <label>Mật khẩu <span class="required">*</span> </label>
                                     <f:input type="password" class="input-control" name="password" id="password" path="password"/> 
                                     <p class="action-btn">
@@ -310,7 +310,7 @@
 
                                         </div>
                                         <label>Email<span class="required">*</span></label>
-                                        <input type="email"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" class="input-control" value="" title="email" name="email" id="Email" >
+                                        <input type="email" class="input-control" value="" title="email" name="email" id="Email" >
                                         <p class="action-btn">
                                             <input type="submit" class="button_all" value="Gửi">
                                             hoặc <a href="#" onclick="hideRecoverPasswordForm();

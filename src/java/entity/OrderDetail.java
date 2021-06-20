@@ -13,6 +13,8 @@ public class OrderDetail {
     private int orderDetailId;
     private int orderId;
     private String productName;
+    private int colorId;
+    private int sizeId;
     private String note;
     private int productId;
     private int price;
@@ -23,10 +25,12 @@ public class OrderDetail {
     public OrderDetail() {
     }
 
-    public OrderDetail(int orderDetailId, int orderId, String productName, String note, int productId, int price, int quantity, int amount, boolean status) {
+    public OrderDetail(int orderDetailId, int orderId, String productName, int colorId, int sizeId, String note, int productId, int price, int quantity, int amount, boolean status) {
         this.orderDetailId = orderDetailId;
         this.orderId = orderId;
         this.productName = productName;
+        this.colorId = colorId;
+        this.sizeId = sizeId;
         this.note = note;
         this.productId = productId;
         this.price = price;
@@ -34,36 +38,13 @@ public class OrderDetail {
         this.amount = amount;
         this.status = status;
     }
-    
-    public String getNote() {
-        return note;
-    }
 
-    public void setNote(String note) {
-        this.note = note;
-    }
     public int getOrderDetailId() {
         return orderDetailId;
     }
 
-    public int getProductId() {
-        return productId;
-    }
-
-    public void setProductId(int productId) {
-        this.productId = productId;
-    }
-
     public void setOrderDetailId(int orderDetailId) {
         this.orderDetailId = orderDetailId;
-    }
-
-    public String getProductName() {
-        return productName;
-    }
-
-    public void setProductName(String productName) {
-        this.productName = productName;
     }
 
     public int getOrderId() {
@@ -74,7 +55,45 @@ public class OrderDetail {
         this.orderId = orderId;
     }
 
-   
+    public String getProductName() {
+        return productName;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName;
+    }
+
+    public int getColorId() {
+        return colorId;
+    }
+
+    public void setColorId(int colorId) {
+        this.colorId = colorId;
+    }
+
+    public int getSizeId() {
+        return sizeId;
+    }
+
+    public void setSizeId(int sizeId) {
+        this.sizeId = sizeId;
+    }
+
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
+    }
+
+    public int getProductId() {
+        return productId;
+    }
+
+    public void setProductId(int productId) {
+        this.productId = productId;
+    }
 
     public int getPrice() {
         return price;
@@ -107,5 +126,7 @@ public class OrderDetail {
     public void setStatus(boolean status) {
         this.status = status;
     }
+
+  
     
 }

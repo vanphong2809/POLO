@@ -122,7 +122,7 @@
                                                             <div class="actions">
                                                                 <input type="hidden" name="quantity" value="1">
                                                                 <input type="hidden" name="Id" value="${productHot.productId}">
-                                                                <button class="btn-transparent pull-xs-left" title="Cho vào giỏ hàng" type="submit"><span>Cho vào giỏ hàng</span></button>
+<!--                                                                <button class="btn-transparent pull-xs-left" title="Cho vào giỏ hàng" type="submit"><span>Cho vào giỏ hàng</span></button>-->
                                                             </div>
                                                         </form>
                                                         <div class="clearfix"> </div>
@@ -161,9 +161,9 @@
                                             </a>
                                             <form action="addCart.htm" method="get" class="variants" id="product-actions-830910" enctype="multipart/form-data">
                                                 <div class="hover_fly">
-                                                    <a class="exclusive ajax_add_to_cart_button btn-cart add_to_cart" href="#" title="Cho vào giỏ hàng">
+<!--                                                    <a class="exclusive ajax_add_to_cart_button btn-cart add_to_cart" href="#" title="Cho vào giỏ hàng">
                                                         <div><i class="icon-shopping-cart"></i><span>Cho vào giỏ hàng</span></div>
-                                                    </a>
+                                                    </a>-->
                                                     <input type="hidden" name="variantId" value="1273197" />
                                                 </div>
                                             </form>
@@ -188,7 +188,7 @@
                                                 <div class="actions">
                                                     <input type="hidden" name="quantity" value="1">
                                                     <input type="hidden" name="Id" value="${productNew.productId}">
-                                                    <button class="btn-transparent pull-xs-left" title="Cho vào giỏ hàng" type="submit"><span>Cho vào giỏ hàng</span></button>
+                                                    <!--<button class="btn-transparent pull-xs-left" title="Cho vào giỏ hàng" type="submit"><span>Cho vào giỏ hàng</span></button>-->
                                                 </div>
                                             </form>
                                             <div class="clearfix"> </div>
@@ -246,7 +246,7 @@
                                                             <div class="actions">
                                                                 <input type="hidden" name="quantity" value="1">
                                                                 <input type="hidden" name="Id" value="${productHot.productId}">
-                                                                <button class="btn-transparent pull-xs-left" title="Cho vào giỏ hàng" type="submit"><span>Cho vào giỏ hàng</span></button>
+                                                                <!--<button class="btn-transparent pull-xs-left" title="Cho vào giỏ hàng" type="submit"><span>Cho vào giỏ hàng</span></button>-->
                                                             </div>
 
                                                         </form>
@@ -314,7 +314,7 @@
                                                             <div class="actions">
                                                                 <input type="hidden" name="quantity" value="1">
                                                                 <input type="hidden" name="Id" value="${productDiscount.productId}">
-                                                                <button class="btn-transparent pull-xs-left" title="Cho vào giỏ hàng" type="submit"><span>Cho vào giỏ hàng</span></button>
+                                                                <!--<button class="btn-transparent pull-xs-left" title="Cho vào giỏ hàng" type="submit"><span>Cho vào giỏ hàng</span></button>-->
                                                             </div>
 
                                                         </form>

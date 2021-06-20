@@ -5,6 +5,9 @@
  */
 package entity;
 
+import javax.validation.constraints.Pattern;
+import org.hibernate.validator.constraints.Email;
+
 /**
  *
  * @author Win 10

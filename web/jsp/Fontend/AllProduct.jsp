@@ -73,7 +73,7 @@
 
                                             <input type="hidden" name="quantity" value="1">
                                             <input type="hidden" name="Id" value="${product.productId}">
-                                            <button class="btn-transparent pull-xs-left" type="submit">Cho vào giỏ</button>
+                                            <!--<button class="btn-transparent pull-xs-left" type="submit">Cho vào giỏ</button>-->
 
 
                                         </form>
@@ -111,7 +111,7 @@
 
                                             <input type="hidden" name="quantity" value="1">
                                             <input type="hidden" name="Id" value="${product.productId}">
-                                            <button class="btn-transparent pull-xs-left" type="submit">Cho vào giỏ</button>
+                                            <!--<button class="btn-transparent pull-xs-left" type="submit">Cho vào giỏ</button>-->
 
 
                                         </form>

@@ -10,13 +10,13 @@
     <jsp:include page="Head.jsp"></jsp:include>
 
 
-        <script src="/SpringFrameworks/jsp/Admin/js/bootstrap.min.js" type="text/javascript"></script>
-        <script src="/SpringFrameworks/jsp/Admin/js/jquery.min.js" type="text/javascript"></script>
-        <script src="/SpringFrameworks/jsp/Admin/js/jquery.dataTables.min.js" type="text/javascript"></script>
-        <script src="/SpringFrameworks/jsp/Admin/js/dataTables.jqueryui.js" type="text/javascript"></script>
-        <link href="/SpringFrameworks/jsp/Admin/css/jquery-ui.css" rel="stylesheet" type="text/css"/>
-        <link href="/SpringFrameworks/jsp/Admin/css/dataTables.jqueryui.css" rel="stylesheet" type="text/css"/>
-        <script src="/SpringFrameworks/jsp/Admin/js/count.js" type="text/javascript"></script>
+        <script src="/POLO/jsp/Admin/js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="/POLO/jsp/Admin/js/jquery.min.js" type="text/javascript"></script>
+        <script src="/POLO/jsp/Admin/js/jquery.dataTables.min.js" type="text/javascript"></script>
+        <script src="/POLO/jsp/Admin/js/dataTables.jqueryui.js" type="text/javascript"></script>
+        <link href="/POLO/jsp/Admin/css/jquery-ui.css" rel="stylesheet" type="text/css"/>
+        <link href="/POLO/jsp/Admin/css/dataTables.jqueryui.css" rel="stylesheet" type="text/css"/>
+        <script src="/POLO/jsp/Admin/js/count.js" type="text/javascript"></script>
         <script type="text/javascript">
             $(document).ready(function () {
                 $('#order').dataTable({
@@ -36,7 +36,7 @@
                     } catch (e) {
                     }
                 </script>
-                <script src="/SpringFrameworks/jsp/Fontend/js/test.js" type="text/javascript"></script>
+                <script src="/POLO/jsp/Fontend/js/test.js" type="text/javascript"></script>
 
             <jsp:include page="Menu.jsp"></jsp:include>
 
@@ -129,8 +129,6 @@
                                                             <a class="blue" href="orderDetail.htm?Id=${order.orderId}" title="Chi tiết">
                                                                 <i class="ace-icon fa fa-search-plus bigger-130"></i>
                                                             </a>
-
-
                                                         </div>
 
                                                     </td>
